@@ -1,0 +1,335 @@
+Id,Organization,City,State,Country,Zip/Post,Theme,Sub Theme,Paper Number,Conference
+21,Icon,Biggera Waters,QLD,Australia,4216,13. ROMP,New technologies and techniques,5,EPSM
+32,Icon Cancer Center,Gosford,NSW,Australia,2250,13. ROMP,,6,EPSM
+36,Peter MacCallum Cancer Centre,Melbourne,VIC,Australia,3001,13. ROMP,Treatment planning and modelling,7,EPSM
+40,Fortis Memorial Research Institute,Gurgaon,Haryana,India,122002,15. Radiology Physics,,8,AOCMP
+41,Peter MacCallum Cancer Centre,Melbourne,VIC,Australia,3021,13. ROMP,Stereotactic radiotherapy & radiosurgery,9,EPSM
+22,The University Of Western Australia,Perth,WA,Australia,6060,13. ROMP,,10,EPSM
+22,The University Of Western Australia,Perth,WA,Australia,6060,13. ROMP,,11,EPSM
+42,Icon,Rockingham,WA,Australia,6168,13. ROMP,Stereotactic radiotherapy & radiosurgery,12,EPSM
+53,Gono University,Dhaka,Dhaka,Bangladesh,1344,13. ROMP,Treatment planning and modelling,13,AOCMP
+54,Medical physics,dhaka,,Bangladesh,1206,12. Radiation Modelling,,14,AOCMP
+55,St Andrew's War Memorial Hospital,Brisbane,QLD,Australia,4035,15. Radiology Physics,,15,EPSM
+55,St Andrew's War Memorial Hospital,Brisbane,QLD,Australia,4035,17. Other,,16,EPSM
+58,International Atomic Energy Agency,Vienna,,Austria,1220,06. Health Physics,,17,EPSM
+57,"The Mid North Coast Cancer Institute, NSW Health",Port Macquarie,NSW,Australia,2444,13. ROMP,Treatment planning and modelling,18,EPSM
+84,Sir Charles Gairdner Hospital,Perth,WA,Australia,6009,09. Pharmaceutical Science,,19,EPSM
+87,Monash Health,Melbourne,VIC,Australia,3163,14. Radiation Protection,,20,EPSM
+88,Queensland Health,Brisbane,QLD,Australia,4104,13. ROMP,New technologies and techniques,21,EPSM
+85,"Department of Radiation Oncology, National Institute of Cancer Research & Hospital",Dhaka,,Bangladesh,1212,13. ROMP,Stereotactic radiotherapy & radiosurgery,22,AOCMP
+85,"Department of Radiation Oncology, National Institute of Cancer Research & Hospital",Dhaka,,Bangladesh,1212,13. ROMP,Stereotactic radiotherapy & radiosurgery,23,EPSM
+86,Institut Kanser Negara,Putrajaya,Putrajaya,Malaysia,62250,08. Nuclear Medicine Physics,,24,AOCMP
+90,Queensland Health,Brisbane,QLD,Australia,4000,15. Radiology Physics,,25,EPSM
+90,Queensland Health,Brisbane,QLD,Australia,4000,15. Radiology Physics,,26,EPSM
+90,Queensland Health,Brisbane,QLD,Australia,4000,15. Radiology Physics,,27,EPSM
+48,Genesiscare Victoria,Melbourne,VIC,Australia,3141,13. ROMP,Quality assurance,28,EPSM
+91,BPKM Cancer Hospital,Bharatpur,,Nepal,44200,13. ROMP,Treatment planning and modelling,29,AOCMP
+93,ROPAIR,Brisbane,QLD,Australia,4102,13. ROMP,,30,EPSM
+94,Northwest General Hospital And Research Centre,Peshawar,KP,Pakistan,25000,13. ROMP,Quality assurance,31,AOCMP
+95,University Of Tsukuba Hospital,Ibaraki,,Japan,305-8576,13. ROMP,Quality assurance,32,AOCMP
+18,University Of Western Australia,Perth,WA,Australia,6009,13. ROMP,Treatment planning and modelling,33,EPSM
+99,"Mid North Coast Cancer Institute, Coffs Harbour Health Campus, Australia",Coffs Harbour,NSW,Australia,2450,13. ROMP,Quality assurance,34,EPSM
+93,ROPAIR,Brisbane,QLD,Australia,4102,13. ROMP,,35,EPSM
+18,University Of Western Australia,Perth,WA,Australia,6009,14. Radiation Protection,,36,EPSM
+47,University Of Wollongong,Wollongong,NSW,Australia,2518,13. ROMP,New technologies and techniques,37,EPSM
+105,Icon Cancer Centres,Cranley,QLD,Australia,4350,13. ROMP,,38,EPSM
+107,Nepean Cancer Care Centre,Penrith,NSW,Australia,2751,13. ROMP,Treatment planning and modelling,39,EPSM
+108,NSW Health,Liverpool,NSW,Australia,BC1871,13. ROMP,Quality assurance,40,EPSM
+100,"Radiation Oncology, Princess Alexandra Hospital",Woolloongabba,QLD,Australia,4120,13. ROMP,Treatment planning and modelling,41,EPSM
+100,"Radiation Oncology, Princess Alexandra Hospital",Woolloongabba,QLD,Australia,4120,13. ROMP,Dosimetry,42,EPSM
+111,St George Hospital Cancer Care Centre,Nsw,NSW,Australia,2217,13. ROMP,Brachytherapy,43,EPSM
+112,Icon Cancer Centre,Brisbane,QLD,Australia,4164,13. ROMP,Treatment planning and modelling,44,EPSM
+52,Radiation Oncology Princess Alexandra Hospital,Brisbane,QLD,Australia,4102,13. ROMP,Treatment planning and modelling,45,EPSM
+52,Radiation Oncology Princess Alexandra Hospital,Brisbane,QLD,Australia,4102,13. ROMP,Quality assurance,46,EPSM
+52,Radiation Oncology Princess Alexandra Hospital,Brisbane,QLD,Australia,4102,13. ROMP,Quality assurance,47,EPSM
+96,Biomedical Technology Services,Brisbane,QLD,Australia,4000,15. Radiology Physics,,48,EPSM
+114,Downes,Sydney,NSW,Australia,2031,17. Other,,49,EPSM
+109,Royal Perth Hospital,Perth,WA,Australia,6105,01. Biomedical Engineering,,50,EPSM
+97,Princess Alexandra Hospital,Brisbane,QLD,Australia,4102,04. Computers/Programming/IT/Software,,51,EPSM
+97,Princess Alexandra Hospital,Brisbane,QLD,Australia,4102,04. Computers/Programming/IT/Software,,52,EPSM
+118,Kanazawa University,Kanazawa,,Japan,9200923,13. ROMP,Dosimetry,53,AOCMP
+102,University Of New South Wales,Liverpool,NSW,Australia,2170,04. Computers/Programming/IT/Software,,54,EPSM
+51,Illawarra Shoalhaven Local Health District,Wollongong,NSW,Australia,2500,13. ROMP,,55,EPSM
+113,The University Of Adelaide,Adelaide,SA,Australia,5007,13. ROMP,Dosimetry,56,EPSM
+115,5d Clinics Perth,Perth,WA,Australia,6010,13. ROMP,Dosimetry,57,EPSM
+122,Sir Charles Gairdner Hospital,Perth,WA,Australia,6009,08. Nuclear Medicine Physics,,58,EPSM
+106,Northern Sydney Cancer Centre,Sydney,NSW,Australia,2065,13. ROMP,,59,EPSM
+126,Orange Health Service,Orange,NSW,Australia,2800,13. ROMP,Dosimetry,61,EPSM
+129,Canterbury District Health Board,Christchurch,Canterbury,New Zealand,8023,01. Biomedical Engineering,,63,EPSM
+129,Canterbury District Health Board,Christchurch,Canterbury,New Zealand,8023,13. ROMP,Stereotactic radiotherapy & radiosurgery,64,EPSM
+130,"Radiation Oncology Princess Alexandra Hospital - Raymond Terrace Campus, Queensland Health",Brisbane,QLD,Australia,4101,13. ROMP,,65,EPSM
+131,Orange Health Service,Orange,NSW,Australia,2800,04. Computers/Programming/IT/Software,,66,EPSM
+134,North West Cancer Centre - Tamworth Hopsital,Tamworth,NSW,Australia,2340,13. ROMP,Quality assurance,67,EPSM
+111,St George Hospital Cancer Care Centre,Nsw,NSW,Australia,2217,13. ROMP,Image guidance and motion management,68,EPSM
+135,South Western Sydney Cancer Service,Campbelltown,NSW,Australia,2560,13. ROMP,Quality assurance,69,EPSM
+116,Alfred Health Radiation Onocology,Melbourne,VIC,Australia,3004,05. Education and Professional Standards,,70,EPSM
+133,University Of Melbourne,Parkville,VIC,Australia,3052,11. Radiation Biology,,71,EPSM
+136,Princess Alexandra Hospital,Brisbane,QLD,Australia,4102,13. ROMP,New technologies and techniques,72,EPSM
+137,"Radiation Oncology, Princess Alexandra Hospital, Ipswich Road, Australia",Woolloongabba,QLD,Australia,4102,13. ROMP,Treatment planning and modelling,73,EPSM
+123,Icon Cancer Centre,Wahroonga,NSW,Australia,2076,13. ROMP,Image guidance and motion management,74,EPSM
+140,Sir Charles Gairdner Hospital,Perth,WA,Australia,6062,13. ROMP,,75,EPSM
+127,Genesis Care,Perth,WA,Australia,6014,13. ROMP,,76,EPSM
+139,Sir Charles Gairdner Hospital,Nedlands,WA,Australia,6010,13. ROMP,Dosimetry,77,EPSM
+56,Kanazawa University,Kanazawa,Ishikawa,Japan,920-0942,13. ROMP,Quality assurance,78,AOCMP
+144,Liverpool And Macarthur Cancer Therapy Centres,Liverpool BC,NSW,Australia,1871,13. ROMP,Treatment planning and modelling,79,EPSM
+144,Liverpool And Macarthur Cancer Therapy Centres,Liverpool BC,NSW,Australia,1871,13. ROMP,Treatment planning and modelling,80,EPSM
+144,Liverpool And Macarthur Cancer Therapy Centres,Liverpool BC,NSW,Australia,1871,13. ROMP,Treatment planning and modelling,81,EPSM
+146,"Ncci, Lismore",Lismore,NSW,Australia,2480,13. ROMP,Dosimetry,82,EPSM
+146,"Ncci, Lismore",Lismore,NSW,Australia,2480,13. ROMP,Dosimetry,83,EPSM
+146,"Ncci, Lismore",Lismore,NSW,Australia,2480,04. Computers/Programming/IT/Software,,84,EPSM
+145,Health STEM Solutions,Melbourne,VIC,Australia,3000,13. ROMP,Stereotactic radiotherapy & radiosurgery,85,EPSM
+141,"Calvary Mater Newcastle, Australia",Newcastle,NSW,Australia,2300,13. ROMP,Quality assurance,86,EPSM
+148,Australian Radiation Protection and Nuclear Safety Agency,Yallambie,VIC,Australia,3085,14. Radiation Protection,,87,EPSM
+149,Liverpool and Macarthur Cancer Therapy Centres,Liverpool,NSW,Australia,1871,13. ROMP,Treatment planning and modelling,88,EPSM
+142,"University Of Newcastle, Nsw, Australia",Hunter Region Mail Centre NSW 2310,NSW,Australia, 2310,13. ROMP,Image guidance and motion management,89,EPSM
+150,Rmit,Melbourne,VIC,Australia,3192,13. ROMP,Targeted Therapies,90,EPSM
+138,Northern Sydney Cancer Centre,St Leonards,NSW,Australia,2065,13. ROMP,Stereotactic radiotherapy & radiosurgery,91,EPSM
+60,St George Cancer Care Centre,Sydney,NSW,Australia,2217,13. ROMP,New technologies and techniques,92,EPSM
+152,Liverpool And Macarthur Cancer Therapy Centres,Liverpool BC,NSW,Australia,1871,13. ROMP,Quality assurance,93,EPSM
+152,Liverpool And Macarthur Cancer Therapy Centres,Liverpool BC,NSW,Australia,1871,13. ROMP,,94,EPSM
+153,Chris O'brien Lifehouse,Camperdown,NSW,Australia,2050,13. ROMP,Treatment planning and modelling,95,EPSM
+98,Calvary Mater Newcastle Hospital,Newcastle,NSW,Australia,2298,05. Education and Professional Standards,,96,EPSM
+154,Waikato District Health Board,Hamilton,,New Zealand,3204,13. ROMP,Treatment planning and modelling,97,EPSM
+151,South Eastern Sydney Local Health District,Sydney,NSW,Australia,2217,08. Nuclear Medicine Physics,,98,EPSM
+155,University Of Wollongong,Wollongong,NSW,Australia,2500,13. ROMP,Dosimetry,99,EPSM
+156,Queensland Health,Brisbane,QLD,Australia,4101,13. ROMP,,100,EPSM
+157,Westmead Hospital,Sydney,NSW,Australia,2152,15. Radiology Physics,,101,EPSM
+143,University of Western Australia; Sir Charles Gairdner Hospital,Perth,WA,Australia,6009,13. ROMP,Stereotactic radiotherapy & radiosurgery,102,EPSM
+160,"Crown Princess Mary Cancer Care, Westmead Hospital",Westmead,NSW,Australia,2145,13. ROMP,Dosimetry,103,EPSM
+121,Wellington Blood & Cancer Centre,Wellington,,New Zealand,6021,13. ROMP,New technologies and techniques,104,EPSM
+104,Kyung Hee University,Seoul,,South Korea,04808,13. ROMP,Brachytherapy,105,AOCMP
+159,Alfred Health,Melbourne,VIC,Australia,3000,15. Radiology Physics,,106,EPSM
+162,Sunshine Coast University Hospital,Sunshine Coast Mc,QLD,Australia,4560,13. ROMP,New technologies and techniques,107,EPSM
+164,Arpansa,Yallambie,VIC,Australia,3085,13. ROMP,Dosimetry,108,EPSM
+163,Kolling Institute,Sydney,NSW,Australia,2082,11. Radiation Biology,,109,EPSM
+167,The University Of Newcastle,New Lambton,NSW,Australia,2305,01. Biomedical Engineering,,110,EPSM
+132,"St George's Hospital, Cancer Care Centre",Christchurch,,New Zealand,8014,13. ROMP,Quality assurance,111,EPSM
+167,The University Of Newcastle,New Lambton,NSW,Australia,2305,07. Machine Learning,,112,EPSM
+168,Kyushu University,Kasuga,Fukuoka,Japan,816-0805,08. Nuclear Medicine Physics,,113,AOCMP
+169,University Of New South Wales,Warwick Farm,NSW,Australia,2170,13. ROMP,Treatment planning and modelling,114,EPSM
+169,University Of New South Wales,Warwick Farm,NSW,Australia,2170,13. ROMP,Treatment planning and modelling,115,EPSM
+170,Sunshine Coast University Hospital,Buderim,QLD,Australia,4556,13. ROMP,Treatment planning and modelling,116,EPSM
+161,Alfred Health Radiation Oncology,Melbourne,Vic,Australia,3004,13. ROMP,Treatment planning and modelling,117,EPSM
+59,Canterbury District Health Board,Christchurch,Canterbury,New Zealand,8011,13. ROMP,,118,EPSM
+172,Arpansa,Yallambie,VIC,Australia,3085,13. ROMP,Stereotactic radiotherapy & radiosurgery,119,EPSM
+174,ACDS,South Yarra,VIC,Australia,3141,13. ROMP,Dosimetry,120,EPSM
+147,Blacktown Cancer And Haematology Centre,Sydney,Nsw,Australia,2148,13. ROMP,New technologies and techniques,121,EPSM
+175,Arpansa,Melbourne,,Australia,3085,13. ROMP,Dosimetry,122,EPSM
+177,"University Of Misan, Faculty Of Medicine, Department Of Physiology, Misan, Iraq",Misan,,Iraq,62010,14. Radiation Protection,,123,AOCMP
+178,Sir Charles Gairdner Hospital,Perth,WA,Australia,6009,08. Nuclear Medicine Physics,,124,EPSM
+181,Genesiscare,North Lake,WA,Australia,6163,13. ROMP,Quality assurance,125,EPSM
+180,"Genesis Cancer Care, Wa","Shenton Park, Wa",WA,Australia,6008,13. ROMP,Dosimetry,126,EPSM
+182,Queesnland University Of Technology,Brisbane,QLD,Australia,4034,13. ROMP,,127,EPSM
+180,"Genesis Cancer Care, Wa","Shenton Park, Wa",WA,Australia,6008,13. ROMP,Treatment planning and modelling,128,EPSM
+184,"The University Of Sydney, Liverpool Hospital, Ingham Institute",Sydney,Nsw,Australia,2049,13. ROMP,Stereotactic radiotherapy & radiosurgery,129,EPSM
+185,Photon Physics Ltd,Christchurch,,New Zealand,8023,14. Radiation Protection,,130,EPSM
+158,Kanazawa University,Kanazawa,,Japan,9200935,13. ROMP,Quality assurance,131,AOCMP
+187,ICON Cancer Centre - Gold Coast,Southport,QLD,Australia,4215,13. ROMP,Treatment planning and modelling,132,EPSM
+183,Australian Radiation Protection And Nuclear Safety Agency,Melbourne,VIC,Australia,3085,13. ROMP,Dosimetry,133,EPSM
+87,Monash Health,Melbourne,VIC,Australia,3163,14. Radiation Protection,,134,EPSM
+187,ICON Cancer Centre - Gold Coast,Southport,QLD,Australia,4215,13. ROMP,Dosimetry,135,EPSM
+176,"Princess Alexandra Hospital, Radiation Oncology",Holland Park,QLD,Australia,4121,13. ROMP,Treatment planning and modelling,136,EPSM
+176,"Princess Alexandra Hospital, Radiation Oncology",Holland Park,QLD,Australia,4121,13. ROMP,Quality assurance,137,EPSM
+176,"Princess Alexandra Hospital, Radiation Oncology",Holland Park,QLD,Australia,4121,13. ROMP,Quality assurance,138,EPSM
+128,Australian National University,Cook,ACT,Australia,2614,08. Nuclear Medicine Physics,,139,EPSM
+190,Royal Perth Hospital,Perth,WA,Australia,6103,08. Nuclear Medicine Physics,,140,EPSM
+191,Mid North Coast Cancer Institute,Coffs Harbour,NSW,Australia,2450,13. ROMP,Quality assurance,141,EPSM
+189,Mid North Coast Cancer Institute,Coffs Harbour,NSW,Australia,2450,13. ROMP,Treatment planning and modelling,142,EPSM
+192,Ingham Institute For Applied Medical Research,Liverpool,NSW,Australia,2150,13. ROMP,New technologies and techniques,143,EPSM
+191,Mid North Coast Cancer Institute,Coffs Harbour,NSW,Australia,2450,13. ROMP,Quality assurance,144,EPSM
+194,Liverpool And Macarthur Cancer Therapy Centre,Liverpool BC,NSW,Australia,1871,13. ROMP,Dosimetry,145,EPSM
+194,Liverpool And Macarthur Cancer Therapy Centre,Liverpool BC,NSW,Australia,1871,13. ROMP,Treatment planning and modelling,146,EPSM
+195,Riverina Cancer Care Centre,Wagga Wagga,NSW,Australia,2650,13. ROMP,Treatment planning and modelling,147,EPSM
+125,Princess Alexandra Hospital,Woolloongabba ,QLD,Australia,4102,13. ROMP,Stereotactic radiotherapy & radiosurgery,148,EPSM
+196,The Australian National University,Canberra,ACT,Australia,2601,08. Nuclear Medicine Physics,,149,EPSM
+171,Centre for Medical Radiation Physics,Wollongong,Nsw,Australia,2500,13. ROMP,Quality assurance,150,EPSM
+198,Peter Maccallum Cancer Centre,Melbourne,VIC,Australia,3088,13. ROMP,Dosimetry,151,EPSM
+125,Princess Alexandra Hospital,Woolloongabba ,QLD,Australia,4102,13. ROMP,Image guidance and motion management,152,EPSM
+200,ARPANSA (ACDS),Melbourne,WA,Australia,3085,13. ROMP,Dosimetry,153,EPSM
+199,Alfred Health,Melbourne,VIC,Australia,3004,08. Nuclear Medicine Physics,,154,EPSM
+166,Genesiscare,Henley Beach,SA,Australia,5022,13. ROMP,Stereotactic radiotherapy & radiosurgery,155,EPSM
+201,Calvary Mater Newcastle,Newcastle,NSW,Australia,2310,13. ROMP,New technologies and techniques,156,EPSM
+201,Calvary Mater Newcastle,Newcastle,NSW,Australia,2310,13. ROMP,New technologies and techniques,157,EPSM
+116,Alfred Health Radiation Onocology,Melbourne,VIC,Australia,3004,13. ROMP,Brachytherapy,158,EPSM
+202,"Liverpool Cancer Therapy Centre, Nsw Health",Warwick Farm,NSW,Australia,2170,13. ROMP,Treatment planning and modelling,159,EPSM
+197,"Nelune Comprehensive Cancer Centre, Prince Of Wales Hospital",Randwick,NSW,Australia,2031,17. Other,,160,EPSM
+203,The University of Newcasle,Newcastle,NSW,Australia,2298,06. Health Physics,,161,EPSM
+208,Royal Brisbane And Women's Hospital,Brisbane,QLD,Australia,4000,13. ROMP,,162,EPSM
+188,Australian Clinical Dosimetry Service,Fitzroy North,VIC,Australia,3068,13. ROMP,Dosimetry,163,EPSM
+207,Princess Alexandra Hospital,Woolloongabba,QLD,Australia,4102,13. ROMP,Quality assurance,164,EPSM
+205,University Of Wollongong,Wollongong ,NSW,Australia,2500 ,13. ROMP,Quality assurance,165,EPSM
+204,Mid North Coast Cancer Institute,Coffs Harbour,NSW,Australia,2450,11. Radiation Biology,,166,EPSM
+107,Nepean Cancer Care Centre,Penrith,NSW,Australia,2751,13. ROMP,Image guidance and motion management,167,EPSM
+206,NSCC,Ettalong Beach,NSW,Australia,2257,13. ROMP,Image guidance and motion management,168,EPSM
+165,1992,Sydney,NSW,Australia,2016,01. Biomedical Engineering,,169,EPSM
+210,Biomedical Technology Services - QLD Health,Gold Coast,QLD,Australia,4209,14. Radiation Protection,,170,EPSM
+173,Rmit University,Melbourne,VIC,Australia,3001,13. ROMP,Brachytherapy,171,EPSM
+117,PeterMac,Bayswater,VIC,Australia,3153,16. Synchrotron Physics,,172,EPSM
+117,PeterMac,Bayswater,VIC,Australia,3153,13. ROMP,Stereotactic radiotherapy & radiosurgery,173,EPSM
+211,Austin Health,Melbourne,VIC,Australia,3057,15. Radiology Physics,,174,EPSM
+209,Alfred Health,Melbourne,VIC,Australia,3012,15. Radiology Physics,,175,EPSM
+49,SMS Medical College and Hospital,Jaipur,Rajasthan,India,302004,14. Radiation Protection,,176,AOCMP
+213,Alfred Health Radiation Oncology,Melbourne,VIC,Australia,3004,13. ROMP,New technologies and techniques,177,EPSM
+214,Royal Adelaide Hospital,Adelaide,SA,Australia,5000,08. Nuclear Medicine Physics,,178,EPSM
+212,Chris O’brien Lifehouse,Sydney,NSW,Australia,2050,11. Radiation Biology,,179,EPSM
+215,ARPANSA,Melbourne,VIC,Australia,3085,13. ROMP,Dosimetry,180,EPSM
+216,University Of Wollongong,Wollongong,Nsw,Australia,2500,13. ROMP,Dosimetry,181,EPSM
+217,Sir Charles Gairdner Hospital,6105 - Kewdale,WA,Australia,6105,05. Education and Professional Standards,,182,EPSM
+218,Genesis Care,Kardinya,WA,Australia,6163,04. Computers/Programming/IT/Software,,183,EPSM
+219,University of Sydney,Ashfield,NSW,Australia,2131,13. ROMP,,184,EPSM
+151,South Eastern Sydney Local Health District,Sydney,NSW,Australia,2217,08. Nuclear Medicine Physics,,185,EPSM
+186,The University Of Sydney,Sydney,NSW,Australia,2070,10. Pre-clinical Imaging,,186,EPSM
+110,Sir Charles Gairdner Hospital,Leeming,WA,Australia,6149,13. ROMP,Quality assurance,187,EPSM
+224,The National University Of Malaysia,Kuala Lumpur,,Malaysia,50300,13. ROMP,Treatment planning and modelling,188,AOCMP
+222,The University Of Adelaide,Adelaide,South Australia,Australia,5089,13. ROMP,Hadron therapy,189,EPSM
+225,Hiroshima High-precision Radiotherapy Cancer Center,Hiroshima,Hiroshima,Japan,732-0057,13. ROMP,,190,AOCMP
+227,Biomedical Technology Services,Southport,QLD,Australia,4215,08. Nuclear Medicine Physics,,191,EPSM
+229,Australian Synchrotron,Clayton Vic,VIC,Australia,3168,16. Synchrotron Physics,,192,EPSM
+114,Downes,Sydney,NSW,Australia,2031,17. Other,,193,EPSM
+232,Sir Charles Gairdner Hospital,Mosman Park,- Select State -,Australia,6009,03. Clinical Engineering,,194,EPSM
+203,The University of Newcasle,Newcastle,NSW,Australia,2298,06. Health Physics,,195,EPSM
+234,Calvary Mater Newcastle,Cardiff,,Australia,2285,13. ROMP,Treatment planning and modelling,196,EPSM
+226,University Of Wollongong,Port Kembla,NSW,Australia,2505,10. Pre-clinical Imaging,,197,EPSM
+236,ARPANSA,Melbourne,VIC,Australia,3085,13. ROMP,Dosimetry,198,EPSM
+235,INWENTECH,Melbourne,VIC,Australia,3150,13. ROMP,Quality assurance,199,EPSM
+237,University Of Newcastle,Callaghan,NSW,Australia,2308,13. ROMP,Treatment planning and modelling,200,EPSM
+238,Ministry Of Health,Riyadh,,Saudi Arabia,7983-13525,15. Radiology Physics,,201,AOCMP
+228,Mid North Coast Cancer Institute,Port Macquarie,NSW,Australia,2444,13. ROMP,Quality assurance,202,EPSM
+241,Royal North Shore Hospital,Sutherland,NSW,Australia,2232,13. ROMP,New technologies and techniques,203,EPSM
+151,South Eastern Sydney Local Health District,Sydney,NSW,Australia,2217,08. Nuclear Medicine Physics,,204,EPSM
+242,Genesis Care,6101,WA,Australia,6101,13. ROMP,Quality assurance,205,EPSM
+243,"Biomedical Technology Services, Queensland Health",Birtinya,QLD,Australia,4575,02. Biophysics,,206,EPSM
+243,"Biomedical Technology Services, Queensland Health",Birtinya,QLD,Australia,4575,15. Radiology Physics,,207,EPSM
+231,Queensland University of Technology,Brisbane,QLD,Australia,4001,13. ROMP,Image guidance and motion management,208,EPSM
+230,Peter Maccallum Cancer Centre,Melbourne,VIC,Australia,3000,13. ROMP,Treatment planning and modelling,209,EPSM
+208,Royal Brisbane And Women's Hospital,Brisbane,QLD,Australia,4000,15. Radiology Physics,,210,EPSM
+248,Sir Charles Gairdner Hospital,Perth,WA,Australia,6009,15. Radiology Physics,,211,EPSM
+251,Queensland University Of Technology,Jacobs Well,QLD,Australia,4208,01. Biomedical Engineering,,212,EPSM
+244,University Of Wollongong,Mount Keira,NSW,Australia,2500,16. Synchrotron Physics,,213,EPSM
+249,Sir Charles Gairdner Hospital,Perth,WA,Australia,6010,10. Pre-clinical Imaging,,214,EPSM
+252,East Metropolitan Health Service,Perth,WA,Australia,6847,01. Biomedical Engineering,,215,EPSM
+252,East Metropolitan Health Service,Perth,WA,Australia,6847,01. Biomedical Engineering,,216,EPSM
+253,University Of Western Australia,Perth,WA,Australia,6008,13. ROMP,Brachytherapy,217,EPSM
+208,Royal Brisbane And Women's Hospital,Brisbane,QLD,Australia,4000,13. ROMP,Treatment planning and modelling,218,EPSM
+254,University Of Western Australia,Perth,WA,Australia,6005,13. ROMP,Stereotactic radiotherapy & radiosurgery,219,EPSM
+255,Sir Charles Gairdner Hospital,Perth,WA,Australia,6009,15. Radiology Physics,,220,EPSM
+250,Royal Brisbane & Women's Hospital,Brisbane,QLD,Australia,4029,13. ROMP,Treatment planning and modelling,221,EPSM
+247,Blacktown Cancer & Haematology Centre,Sydney,NSW,Australia,1730,13. ROMP,Treatment planning and modelling,222,EPSM
+256,Genesiscare,Sydney,NSW,Australia,2065,13. ROMP,New technologies and techniques,223,EPSM
+258,Sydney West Cancer Network,Blacktown,NSW,Australia,2148,13. ROMP,Treatment planning and modelling,224,EPSM
+257,Peter Maccallum Cancer Centre,Melbourne,WA,Australia,3000,13. ROMP,Brachytherapy,225,EPSM
+259,"Northern Sydney Cancer Centre, Rnsh",St Leonards,,Australia,2065,07. Machine Learning,,226,EPSM
+240,Ausrtralia,Melbourne,VIC,Australia,3000,15. Radiology Physics,,227,EPSM
+240,Ausrtralia,Melbourne,VIC,Australia,3000,15. Radiology Physics,,228,EPSM
+245,Sir Charles Gairdner Hospital,Perth,WA,Australia,6009,09. Pharmaceutical Science,,229,EPSM
+262,Genesiscare,Newcastle,NSW,Australia,2290,13. ROMP,New technologies and techniques,230,EPSM
+270,Genesiscare,Melbourne,VIC,Australia,3199,13. ROMP,Quality assurance,231,EPSM
+193,Far Eastern Memorial Hospital,New Taipei City,,Taiwan,24254,13. ROMP,New technologies and techniques,232,AOCMP
+279,Sir Charles Gardner Hospital,Perth,WA,Australia,6005,09. Pharmaceutical Science,,234,EPSM
+280,King George's Medical University,Lucknow,Uttar Pradesh,India,226012,13. ROMP,Brachytherapy,235,AOCMP
+224,The National University Of Malaysia,Kuala Lumpur,,Malaysia,50300,17. Other,,236,AOCMP
+271,The First Affiliated Hosipital Of Zhengzhou University,Zhengzhou,Henan Province,China,450000,13. ROMP,Quality assurance,237,AOCMP
+260,Biomedical Technology Services,Southport,QLD,Australia,4215,15. Radiology Physics,,238,EPSM
+281,Rmit University,Melbourne,VIC,Australia,3082,13. ROMP,New technologies and techniques,239,EPSM
+120,Western Sydney Local Health District,Sydney,NSW,Australia,2042,15. Radiology Physics,,240,EPSM
+284,University Of Western Australia,Perth,WA,Australia,6159,13. ROMP,Quality assurance,241,EPSM
+287,University Of Western Australia,Perth,WA,Australia,6012,17. Other,,242,EPSM
+272,"Cancer Center, Union Hospital, Tongji Medical College, Huazhong University Of Science And Technology",Wuhan,Hubei,China,430023,13. ROMP,Quality assurance,243,AOCMP
+283,Gono Bishwabidyalay,Dhaka,,Bangladesh,1344,01. Biomedical Engineering,,244,AOCMP
+208,Royal Brisbane And Women's Hospital,Brisbane,QLD,Australia,4000,13. ROMP,Treatment planning and modelling,245,EPSM
+221,"Department of Radiology, Hyogo College of Medicine",Kobe,Hyogo,Japan,650-0046,13. ROMP,Quality assurance,246,AOCMP
+309,"Department of Health Sciences, University of Selangor (UNISEL)",Shah Alam,Selangor,Malaysia,40000,06. Health Physics,,247,AOCMP
+314,Sir Charles Gairdner Hospital,Perth,WA,Australia,6009,09. Pharmaceutical Science,,248,AOCMP
+311,Kindai University Faculty of Medicine,Osakasayama,Osaka,Japan,5898511,06. Health Physics,,249,AOCMP
+310,Gono Bishwabidyalay,Bhaktapur,Bagmati,Nepal,00977,02. Biophysics,,250,AOCMP
+310,Gono Bishwabidyalay,Bhaktapur,Bagmati,Nepal,00977,02. Biophysics,,251,AOCMP
+311,Kindai University Faculty of Medicine,Osakasayama,Osaka,Japan,5898511,13. ROMP,Quality assurance,252,AOCMP
+316,Kindai University,Sakai City,,Japan,598-0102,10. Pre-clinical Imaging,,253,AOCMP
+288,Kindai University,Osakassayama,,Japan,5890004,14. Radiation Protection,,254,AOCMP
+319,Kindai University Graduate School of Medical sciences,Osaka,,Japan,589-8511,13. ROMP,Treatment planning and modelling,255,AOCMP
+318,"Faculty of Radiological Technology, School of Medical Sciences, Fujita Health University","Toyoake-city, Aichi",,Japan,470-1192,03. Clinical Engineering,,256,AOCMP
+318,"Faculty of Radiological Technology, School of Medical Sciences, Fujita Health University","Toyoake-city, Aichi",,Japan,470-1192,03. Clinical Engineering,,257,AOCMP
+322,Hoc Mai Medical Foundation University Of Sydney Global Health,Kilburn,SA,Australia,5084,17. Other,,258,AOCMP
+278,Aichi Cancer Center Hospital,Nagoya-city,Aichi-prefecture,Japan,464-8681,13. ROMP,Image guidance and motion management,259,AOCMP
+323,"West China Hospital, Sichuan Univ.",Chengdu,,China,610041,07. Machine Learning,,260,AOCMP
+208,Royal Brisbane And Women's Hospital,Brisbane,QLD,Australia,4000,13. ROMP,Brachytherapy,261,AOCMP
+83,"Department of Medical Physics, Graduate School of Medical Science, Kindai University.",Osaka-Sayama,Osaka,Japan,589-8511,13. ROMP,Quality assurance,262,AOCMP
+326,QST Hospital,Chiba City Inage-ku,,Japan,263-8555,13. ROMP,Dosimetry,263,AOCMP
+327,Wenzhou Medical University 1st Hospital,Wenzhou,Zhejiang,China,325035,10. Pre-clinical Imaging,,264,AOCMP
+327,Wenzhou Medical University 1st Hospital,Wenzhou,Zhejiang,China,325035,02. Biophysics,,265,AOCMP
+330,Chinese Academy Of Medical Sciences,Beijing,Beijing,China,100021,07. Machine Learning,,266,AOCMP
+331,Herston Biofabrication Institute,Brisbane,QLD,Australia,4107,05. Education and Professional Standards,,267,AOCMP
+332,"Department Of Physical Sciences, Peter Maccallum Cancer Centre, Bendigo, Australia",Bendigo,VIC,Australia,3550,13. ROMP,Treatment planning and modelling,268,AOCMP
+293,Seoul National University,Seoul,,South Korea,03080,13. ROMP,New technologies and techniques,269,AOCMP
+333,"Maulana Azad National Urdu University, Gachibowli, Hyderabad-500032, Telangana State, India.",Hyderabad,Telangana State,India,500 032,01. Biomedical Engineering,,270,AOCMP
+276,"Department Of Biomedical Engineering And Research Institute Of Biomedical Engineering, Catholic University of Korea",Seoul,,South Korea,06591,07. Machine Learning,,271,AOCMP
+61,Tohoku University,Sendai,,Japan,980-8575,14. Radiation Protection,,272,AOCMP
+337,Wakayama Medical University,Wakayama,,Japan,641-8509,13. ROMP,Image guidance and motion management,273,AOCMP
+340,Teikyo University,Oomuta,Fukuoka,Japan,836-8505,13. ROMP,Brachytherapy,274,AOCMP
+308,Surin Hospital,Buriram,,Thailand,31180,08. Nuclear Medicine Physics,,275,AOCMP
+329,Tane General Hospital,Osaka,,Japan,577-0847,13. ROMP,Treatment planning and modelling,276,AOCMP
+329,Tane General Hospital,Osaka,,Japan,577-0847,13. ROMP,New technologies and techniques,277,AOCMP
+329,Tane General Hospital,Osaka,,Japan,577-0847,13. ROMP,New technologies and techniques,278,AOCMP
+347,"Department Of Radiation Oncology, Fudan University Shanghai Cancer Center",Shanghai,,China,200030,07. Machine Learning,,279,AOCMP
+331,Herston Biofabrication Institute,Brisbane,QLD,Australia,4107,13. ROMP,Quality assurance,280,AOCMP
+350,The Catholic University of Korea,Seoul,,South Korea,06591,13. ROMP,Treatment planning and modelling,281,AOCMP
+353,The Catholic University Of Korea,Seoul,,South Korea,06591,13. ROMP,Brachytherapy,282,AOCMP
+334,Aichi Medical University Hospital,Nagakute,aichi,Japan,480-1195,13. ROMP,,283,AOCMP
+338,Chiba Cancer Center,Chiba,Chiba,Japan,260-8717,13. ROMP,Dosimetry,284,AOCMP
+358,"Department Of Biomedical Engineering, Catholic University Of Korea",Seoul,,South Korea,137-701,07. Machine Learning,,285,AOCMP
+274,Hcg Nchri Cancer Center Nagpur India,nagpur,Maharashra,India,440026,13. ROMP,Quality assurance,286,AOCMP
+356,"Department of Medical Physics, Graduate School of Medical Sciences, Kindai University",Osakasayma,Osaka,Japan,5898511,13. ROMP,Treatment planning and modelling,287,EPSM
+360,Kitasato University,Kanagawa,,Japan,252-0373,17. Other,,288,AOCMP
+359,Kindai University,Osaka-sayama,Osaka,Japan,589-8511,13. ROMP,,289,AOCMP
+361,Rmit University,Victoria,VIC,Australia,3082,11. Radiation Biology,,290,EPSM
+273,Taylor's University,Subang Jaya,Selangor,Malaysia,47500,08. Nuclear Medicine Physics,,291,AOCMP
+357,"Department of Radiation Oncology, Chiba Cancer Center, Japan",Chiba,,Japan,260-8717,13. ROMP,Quality assurance,292,AOCMP
+246,University Of Electronic Science And Technology Of China,Chengdu,Please Select,China,610041,13. ROMP,Quality assurance,293,AOCMP
+336,"School of Allied Health Sciences, Kitasato University","Sagamihara, Kanagawa",,Japan,252-0373,13. ROMP,Brachytherapy,294,AOCMP
+363,University Of South Australia,Adelaide,SA,Australia,5001,11. Radiation Biology,,295,AOCMP
+324,"King George's Medical University U.P., Lucknow, India",Lucknow,Uttar Pradesh,India,226003,13. ROMP,Hadron therapy,296,AOCMP
+355,"Division Of Radiological Sciences, Graduate School Of Health Sciences, Teikyo University",Omuta,Fukuoka,Japan,836-8505,13. ROMP,Brachytherapy,297,AOCMP
+352,"Cancer Research Institute And School Of Health Sciences, University Of South Australia",Adelaide,SA,Australia,5001,13. ROMP,New technologies and techniques,298,AOCMP
+365,Tokyo Metropolitan University,Tokyo,,Japan,116-0012,17. Other,,299,AOCMP
+367,Gono Bishwabidyalay ( University),Dhaka,,Bangladesh,Dhaka-1344,01. Biomedical Engineering,,300,AOCMP
+101,The University of Tokyo Hospital,Tokyo,,Japan,113-8655,07. Machine Learning,,301,AOCMP
+368,"Department Of Medical Physics, Graduate School Of Medical Sciences, Kindai University",Osakasayama,Osaka,Japan,859-8511,14. Radiation Protection,,302,AOCMP
+321,Hokkaido Cancer Center,Sapporo,Hokkaido,Japan,003-0804,13. ROMP,Brachytherapy,303,AOCMP
+370,"Department Of Radiology, Otsu Red Cross Hospital, Shiga, Japan","Otsu,Shiga",,Japan,520-8511,13. ROMP,Treatment planning and modelling,304,AOCMP
+372,Ahsania Mission Cancer and General Hospital,Dhaka,,Bangladesh,1230,13. ROMP,Dosimetry,305,AOCMP
+373,Kitasato University,Sagamihara,Kanagawa,Japan,252-0373,14. Radiation Protection,,306,AOCMP
+375,"Cancer Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College",Beijing,,China,100021,07. Machine Learning,,307,AOCMP
+369,Tohoku University,Sendai,Miyagi,Japan,980-8574,13. ROMP,Treatment planning and modelling,308,AOCMP
+371,Tohoku University,Sendai,Miyagi,Japan,9808574,13. ROMP,Quality assurance,309,AOCMP
+377,Curtin University,Bentley,WA,Australia,6163,02. Biophysics,,310,AOCMP
+378,Canberra Health Servives,Canberra,ACT,Australia,2605,15. Radiology Physics,,311,AOCMP
+362,Peter Maccallum Cancer Centre,Melbourne,VIC,Australia,3000,13. ROMP,New technologies and techniques,312,AOCMP
+362,Peter Maccallum Cancer Centre,Melbourne,VIC,Australia,3000,05. Education and Professional Standards,,313,AOCMP
+379,University Of Western Australia,Seville Groove,WA,Australia,6112,13. ROMP,,314,AOCMP
+380,Ahsania Mission Cancer & General Hospital,Dhaka,,Bangladesh,1230,13. ROMP,Brachytherapy,315,AOCMP
+376,University of the Philippines Manila,Manila,,Philippines,1000,13. ROMP,New technologies and techniques,316,AOCMP
+354,Canberra Hospital,Canberra,ACT,Australia,2605,16. Synchrotron Physics,,317,AOCMP
+348,Tohoku University,Sendai,,Japan,980-8574,07. Machine Learning,,318,AOCMP
+381,"Nepal Cancer Hospital And Research Center, Nepal",Lalitpur,3,Nepal,00977,13. ROMP,Dosimetry,319,AOCMP
+383,The Catholic University Of Korea,Seoul,,South Korea,06591,08. Nuclear Medicine Physics,,320,AOCMP
+362,Peter Maccallum Cancer Centre,Melbourne,VIC,Australia,3000,13. ROMP,Quality assurance,321,AOCMP
+290,Tokyo Women's Medical University,Tokyo,,Japan,1628666,13. ROMP,Stereotactic radiotherapy & radiosurgery,322,AOCMP
+290,Tokyo Women's Medical University,Tokyo,,Japan,1628666,13. ROMP,Dosimetry,323,AOCMP
+381,"Nepal Cancer Hospital And Research Center, Nepal",Lalitpur,3,Nepal,00977,05. Education and Professional Standards,,324,AOCMP
+356,"Department of Medical Physics, Graduate School of Medical Sciences, Kindai University",Osakasayma,Osaka,Japan,5898511,13. ROMP,Treatment planning and modelling,325,AOCMP
+384,The Catholic University Of Korea,Seoul,,South Korea,06591,17. Other,,326,AOCMP
+377,Curtin University,Bentley,WA,Australia,6163,02. Biophysics,,327,AOCMP
+364,The Catholic University Of Korea,Seoul,,South Korea,06591,13. ROMP,Dosimetry,328,AOCMP
+374,The University Of Tokyo,Tokyo,,Japan,113-8655,13. ROMP,Quality assurance,329,AOCMP
+387,Elekta Shanghai Ltd,Wuhan,Hubei,China,430072,13. ROMP,Treatment planning and modelling,330,AOCMP
+386,Kanazawa University,Kanazawa,,Japan,9200941,13. ROMP,New technologies and techniques,331,AOCMP
+388,"Radiotherapy department, Shaanxi Provincial Cancer Hosipital",Xi An,Shaanxi,China,710061,13. ROMP,Quality assurance,332,EPSM
+389,Beihang University,Beijing,,China,100191,07. Machine Learning,,334,AOCMP
+53,Gono University,Dhaka,Dhaka,Bangladesh,1344,13. ROMP,Image guidance and motion management,335,AOCMP
+385,Gono University,Gazipur,Gazipur,Bangladesh,1704,15. Radiology Physics,,336,AOCMP
+390,Gono Bishwabidyalay,savar,,Bangladesh,1344,01. Biomedical Engineering,,337,AOCMP
+53,Gono University,Dhaka,Dhaka,Bangladesh,1344,13. ROMP,Quality assurance,338,AOCMP
+341,Osaka International Cancer Institute,Osaka,,Japan,541-8567,13. ROMP,Treatment planning and modelling,339,AOCMP
+388,"Radiotherapy department, Shaanxi Provincial Cancer Hosipital",Xi An,Shaanxi,China,710061,13. ROMP,Quality assurance,340,AOCMP
+285,Hcg Apex Cancer Center,Bangalore,Karnataka,India,560027,13. ROMP,New technologies and techniques,341,AOCMP
+282,Tata Memorial Centre,Mumbai,,India,400012,13. ROMP,Quality assurance,342,AOCMP
