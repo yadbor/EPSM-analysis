@@ -196,36 +196,68 @@ $(document).ready(function () {
 </div>
 
 
-<div id="introduction" class="section level1">
-<h1>introduction</h1>
-<p>Just as all happy families are the same, so all happy data analyses are the same. They follow the ancient tripatrite path commonly known as the UG<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> syllogism:</p>
+<div id="prologue" class="section level1">
+<h1>prologue</h1>
+<p>In 2013 EPSM came to Perth. In the weeks leading up to the meeting there was an Out of interest</p>
+</div>
+<div id="modus" class="section level1">
+<h1>modus</h1>
+<p>Just as all happy families are the same, so all happy data analyses are alike. They all follow the tripartite path of the UG<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> syllogism:</p>
 <ul>
 <li>munge</li>
 <li>analyse</li>
 <li>present</li>
 </ul>
-<div id="clean-up-external-data" class="section level2">
-<h2>Clean up external data</h2>
-<p>library(data.table) library(ggplot2)</p>
-<p>The submission data from [<a href="http://theconferencecompany.com" class="uri">http://theconferencecompany.com</a>] came in an Excel™ # load the raw submission data to get a submission date for each paper # need this to sort out which were EPSM and which AOCMP, as only have # paper numbers for AOCMP</p>
-<p>MS &lt;- fread(“mixed_submissions.csv”)</p>
+<div id="raw-data-presentation" class="section level2">
+<h2>raw data presentation</h2>
+<p>The submission data from [<a href="http://theconferencecompany.com" class="uri">http://theconferencecompany.com</a>] came in an Excel™ workbook with several sheets, formatted to their requirements. One sheet had details of the EPSM 2019 abstracts, without dates but labelled in submission order. EPSM and AOCMP abstracts were not separately identified, so a list of ID numbers for AOCMP abstracts, supplied separately by email was used to classify the abstracts. This list was saved as a single column <code>.csv</code> file.</p>
+<p>A second sheet had the number of submissions per day for the EPSM meetings in Hobart 2017, Adelaide 2018 and Perth 2019. Dates were given as days prior to the conference opening date, in order to be able to compare conferences with different dates across years. The columns for date and submissions were extracted from this sheet and saved as a <code>.csv</code> file, as was the complete sheet of abstract details. Submissions from EPSM 2013 were already in a <code>.csv</code> file using calendar dates. These were converted to days prior to allow comparison.</p>
+<p>Finally, significant dates for each conference were gathered from emails and previous conference websites, making use of [<a href="http://www.archive.org" class="uri">http://www.archive.org</a>] as needed.</p>
+</div>
+<div id="munge-to-canonical-form" class="section level2">
+<h2>munge to canonical form</h2>
+<p>EPSM and AOCMP submissions were seperated in a two stage process. First the list of AOCMP ID numbers was used to label the submisison ID by conference. Then the</p>
+<pre class="r"><code>library(data.table)
+library(ggplot2)
+
+# load the raw submission data to get a submission date for each paper
+# need this to sort out which were EPSM and which AOCMP, as only have
+# paper numbers for AOCMP
+
+MS &lt;- fread(&quot;mixed_submissions.csv&quot;)
+
+# write out as seperate files for each conference, 
+# to make future re-use easier (I hope)
+for (conf in names(MS)[-1]) { 
+  cols  &lt;- c(&quot;day_prior&quot;, conf)
+  write.csv(na.omit(MS[, ..cols]),
+            file = paste0(conf, &quot;.csv&quot;)
+            )
+}
+
+MS_days &lt;- MS[!is.na(Perth_2019), rep(day_prior, Perth_2019)]
+
+P19 &lt;- fread(&quot;Perth_2019_subs.csv&quot;)
+setnames(P19, c(&quot;ID&quot;, &quot;org&quot;, &quot;city&quot;, &quot;state&quot;, &quot;country&quot;, &quot;code&quot;, 
+                &quot;theme&quot;,&quot;sub_theme&quot;, &quot;paper&quot;, &quot;conference&quot;))
+
+# note enough submission days in the MS sheet, 
+# so assume the rest were all submitted on the last day?
+all_days &lt;- c(MS_days, rep(last(MS_days), nrow(P19)-length(MS_days)))
+P19[, day_prior := all_days]</code></pre>
 </div>
 </div>
-<div id="write-out-as-seperate-files-for-each-conference" class="section level1">
-<h1>write out as seperate files for each conference,</h1>
+<div id="analyse-this" class="section level1">
+<h1>analyse this</h1>
 </div>
-<div id="to-make-future-re-use-easier-i-hope" class="section level1">
-<h1>to make future re-use easier (I hope)</h1>
-<p>for (conf in names(MS)[-1]) { cols &lt;- c(“day_prior”, conf) write.csv(na.omit(MS[, ..cols]), file = paste0(conf, “.csv”) ) }</p>
-<p>MS_days &lt;- MS[!is.na(Perth_2019), rep(day_prior, Perth_2019)]</p>
-<p>P19 &lt;- fread(“Perth_2019_subs.csv”) setnames(P19, c(“ID”, “org”, “city”, “state”, “country”, “code”, “theme”,“sub_theme”, “paper”, “conference”))</p>
+<div id="show-and-tell" class="section level1">
+<h1>show and tell</h1>
 </div>
-<div id="note-enough-submission-days-in-the-ms-sheet" class="section level1">
-<h1>note enough submission days in the MS sheet,</h1>
+<div id="just-why" class="section level1">
+<h1>just, why?</h1>
 </div>
-<div id="so-assume-the-rest-were-all-submitted-on-the-last-day" class="section level1">
-<h1>so assume the rest were all submitted on the last day?</h1>
-<p>all_days &lt;- c(MS_days, rep(last(MS_days), nrow(P19)-length(MS_days))) P19[, day_prior := all_days]</p>
+<div id="sharing-the-blame" class="section level1">
+<h1>sharing the blame</h1>
 <ol style="list-style-type: decimal">
 <li>collect underpants</li>
 <li>???</li>
@@ -235,7 +267,7 @@ $(document).ready(function () {
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Expressed most clearly in the Underpants Gnomes’ credo<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>Expressed most clearly in the Underpants Gnome credo<a href="#fnref1">↩</a></p></li>
 </ol>
 </div>
 
