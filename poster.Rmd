@@ -126,15 +126,27 @@ events[, conference := paste(city, year, sep = "_")]
 # calculate how long each period was
 days_allowed <- events[, .(initial = as.integer(difftime(call, close)),
                            extend  = as.integer(difftime(close, extended)),
-                           rest    = as.integer(difftime(extended, date))
+                           waiting = as.integer(difftime(extended, date))
                            ), 
                            by="conference,year,city"
                        ]
+# Make conference an ordered factor so ggplot doesn't rearrange
+days_allowed[, conference := factor(conference, levels = rev(conference))]
 # convert to long for for plotting
-days_long <- melt(days_allowed, measure.vars = c("initial", "extend", "rest"))
+days_long <- melt(days_allowed, 
+                  measure.vars = c("initial", "extend", "waiting"), 
+                  variable.name = "period",
+                  value.name = "days"
+                  )
+
+# Use a colourblind friendly palette with grey
 ggplot(days_long) + 
-  aes(x = conference, y = value, fill = variable) +
-  geom_col() + 
+  aes(x = conference, y = days, fill = period) +
+  geom_col(width = 0.5) +
+  scale_fill_manual(values=c("#56B4E9", "#E69F00", NA)) +
+  geom_hline(yintercept = 0, colour = "black") +
+  ylab("days before meeting") +
+  theme(legend.position=c(.8, .5)) +
   coord_flip()
 
 ```
