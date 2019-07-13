@@ -1,6 +1,13 @@
 ---
 title: "Untitled"
-author: "Robert Day"
+author:
+- name: Robert Day
+  affiliation: Royal Perth Hospital
+- name: Tegan Rourke
+  affiliation: Sir Charles Gaidner Hospital
+- name: Hilary
+  affiliation: The Conference Company
+
 date: "7/11/2019"
 output: html_document
 ---
@@ -11,8 +18,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # prologue
 
-In 2013 EPSM came to Perth. In the weeks leading up to the meeting there was an 
-Out of interest 
+In 2013 EPSM came to Perth, and for various reasons members of the WA branch organised the abstract submissions, scheduling and production of the abstract book. Just like the old days. This gave us direct access to the submission data, so like good scientists we looked at the time series. What we saw was that the submitters 
+
+ a) left their submission to the very last minute
+ b) definitely expected a deadline extension
+
+Has anything changed since then?
 
 # modus
 
@@ -23,71 +34,98 @@ They all follow the tripartite path of the UG[^1^] syllogism:
   * analyse
   * present
   
-## raw data presentation
+## raw data
 
 The submission data from [http://theconferencecompany.com] came in an Excel&trade;
 workbook with several sheets, formatted to their requirements.
-One sheet had details of the EPSM 2019 abstracts, 
+These were saved as individual ```.csv``` files, named for the sheet name.
+The first sheet had details of the EPSM 2019 abstracts, 
 without dates but labelled in submission order.
-EPSM and AOCMP abstracts were not separately identified, 
-so a list of ID numbers for AOCMP abstracts, supplied separately by email was used to classify the abstracts.
-This list was saved as a single column ``.csv`` file.
+This contained columns for the submitter, title etc. 
+which were not saved to ```EPSM2019_subs.csv`` for privacy.
 
-
-A second sheet had the number of submissions per day for the EPSM meetings in Hobart 2017, Adelaide 2018 and Perth 2019.
+A second sheet listed the number of submissions per day for the EPSM meetings in Hobart 2017, Adelaide 2018 and Perth 2019.
 Dates were given as days prior to the conference opening date, in order to be able to compare conferences with different dates across years.
-The columns for date and submissions were extracted from this sheet and saved as a ```.csv``` file, as was the complete sheet of abstract details.
+The columns for date and submissions each day were saved as ```Registration.csv``` file, as was the complete sheet of abstract details.
 Submissions from EPSM 2013 were already in a ```.csv``` file using calendar dates.
 These were converted to days prior to allow comparison.
 
-Finally, significant dates for each conference were gathered from emails and previous conference websites, making use of [http://www.archive.org] as needed.
+EPSM and AOCMP abstracts were not seperated in the spreadsheet,
+so a list of ID numbers for AOCMP abstracts supplied separately by email was used to classify the abstracts.
+This list was saved as a single column ``AOCMP_abstracts.csv`` file.
+
+Finally, significant dates for each conference were gathered from emails and previous conference websites, making use of [http://www.archive.org] as needed, and saved to a ```.csv``` file.
 
 ## munge to canonical form
 
-EPSM and AOCMP submissions were seperated in a two stage process.
-First the list of AOCMP ID numbers was used to label the submisison ID by conference.
-Then the 
-
-```{r munge}
+Data from the submission date sheet were split into seperate files to make it easier to extend this anaylsis in the future.
+```{r split merged}
+# Load needed libraries and set file locations
 library(data.table)
+library(stringr)
 library(ggplot2)
 
-# load the raw submission data to get a submission date for each paper
-# need this to sort out which were EPSM and which AOCMP, as only have
-# paper numbers for AOCMP
+raw_path <- "data-raw"
+clean_path <- "data"
 
-MS <- fread("mixed_submissions.csv")
+# Read the raw submissions to get a submission date for each abstract
+MS <- fread(file.path(raw_path, "Registration.csv"))
+# Filenames without spaces are safer. The Perth data here is EPSM & AOCMP
+setnames(MS, c("day_prior", "Hobart_2017", "Adelaide_2018", "Combined_2019"))
+# Clean up the day_prior column, converting the digits before the first " "
+MS[, day_prior := lapply(tstrsplit(day_prior, " ")[1], as.integer)]
 
-# write out as seperate files for each conference, 
-# to make future re-use easier (I hope)
+# Write seperate files for each conference, to make future re-use easier
 for (conf in names(MS)[-1]) { 
   cols  <- c("day_prior", conf)
-  write.csv(na.omit(MS[, ..cols]),
-            file = paste0(conf, ".csv")
+  write.csv(na.omit(MS[, ..cols]), # only rows with values for this conf
+            file = file.path(clean_path, paste0(conf, ".csv"))
             )
 }
+```
 
-MS_days <- MS[!is.na(Perth_2019), rep(day_prior, Perth_2019)]
+EPSM and AOCMP abstracts were seperated in a two stage process.
+First the list of AOCMP ID numbers was used to label the abstract ID by conference.
+A list of abstract dates was generated by replicating dates for days with multiple submissions.
+This list was then be matched with the abstracts, which were in order of submission.
+There were some abstracts recieved after the final date in the spreadsheet, 
+and these were all assigned the final day.
 
-P19 <- fread("Perth_2019_subs.csv")
-setnames(P19, c("ID", "org", "city", "state", "country", "code", 
-                "theme","sub_theme", "paper", "conference"))
+```{r munge}
+AOCMP <- fread(file.path(raw_path, "AOCMP_abstracts.csv"))
+setnames(AOCMP, "ID")
+# Read the complete submission sheet
+PER_19 <- fread(file.path(raw_path, "EPSM2019_subs.csv"))
+setnames(PER_19, c("submitter", "city", "state", "country", "code", 
+                "theme","sub_theme", "ID"))
+# Start by labelling everything as EPSM
+PER_19[, conference := "EPSM"]
+# Re-label rows that match the AOCMP ID list
+PER_19[AOCMP, conference := "AOCMP", on = "ID"]
+# Expand submission days so get a day for each submitted abstract
+sub_days <- MS[!is.na(Combined_2019), rep(day_prior, Combined_2019)]
+# If not enough days, assume the rest were all on the last day
+all_days <- c(sub_days, rep(last(sub_days), nrow(PER_19)-length(sub_days)))
+# As the abstracts are in submission order, this will set the right day
+PER_19[, day_prior := all_days]
 
-# note enough submission days in the MS sheet, 
-# so assume the rest were all submitted on the last day?
-all_days <- c(MS_days, rep(last(MS_days), nrow(P19)-length(MS_days)))
-P19[, day_prior := all_days]
+# Write out seperate EPSM and AOCMP files (already have the combined one above)
+write.csv(PER_19[conference == "EPSM", ],
+          file = file.path(clean_path, "Perth_2019.csv")
+          )
+write.csv(PER_19[conference == "AOCMP", ],
+          file = file.path(clean_path, "AOCMP_2019.csv")
+          )
 ```
 
 # analyse this
 
 # show and tell
 
-# just, why?
+# why? just, why?
 
 # sharing the blame
-[^1^]: Expressed most clearly in the Underpants Gnome credo
-
- 1. collect underpants
- 2. ???
+[^1^]: Expressed most clearly in the Underpants Gnome credo<br>
+ 1. collect underpants<br>
+ 2. ???<br>
  3. profit!

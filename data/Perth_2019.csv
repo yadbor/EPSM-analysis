@@ -1,0 +1,218 @@
+"","submitter","city","state","country","code","theme","sub_theme","ID","conference","day_prior"
+"1",21,"Biggera Waters","QLD","Australia","4216","13. ROMP","New technologies and techniques",5,"EPSM",196
+"2",32,"Gosford","NSW","Australia","2250","13. ROMP","",6,"EPSM",185
+"3",36,"Melbourne","VIC","Australia","3001","13. ROMP","Treatment planning and modelling",7,"EPSM",182
+"4",41,"Melbourne","VIC","Australia","3021","13. ROMP","Stereotactic radiotherapy & radiosurgery",9,"EPSM",162
+"5",22,"Perth","WA","Australia","6060","13. ROMP","",10,"EPSM",162
+"6",22,"Perth","WA","Australia","6060","13. ROMP","",11,"EPSM",162
+"7",42,"Rockingham","WA","Australia","6168","13. ROMP","Stereotactic radiotherapy & radiosurgery",12,"EPSM",159
+"8",55,"Brisbane","QLD","Australia","4035","15. Radiology Physics","",15,"EPSM",156
+"9",55,"Brisbane","QLD","Australia","4035","17. Other","",16,"EPSM",155
+"10",58,"Vienna","","Austria","1220","06. Health Physics","",17,"EPSM",155
+"11",57,"Port Macquarie","NSW","Australia","2444","13. ROMP","Treatment planning and modelling",18,"EPSM",155
+"12",84,"Perth","WA","Australia","6009","09. Pharmaceutical Science","",19,"EPSM",154
+"13",87,"Melbourne","VIC","Australia","3163","14. Radiation Protection","",20,"EPSM",154
+"14",88,"Brisbane","QLD","Australia","4104","13. ROMP","New technologies and techniques",21,"EPSM",154
+"15",85,"Dhaka","","Bangladesh","1212","13. ROMP","Stereotactic radiotherapy & radiosurgery",23,"EPSM",154
+"16",90,"Brisbane","QLD","Australia","4000","15. Radiology Physics","",25,"EPSM",153
+"17",90,"Brisbane","QLD","Australia","4000","15. Radiology Physics","",26,"EPSM",153
+"18",90,"Brisbane","QLD","Australia","4000","15. Radiology Physics","",27,"EPSM",153
+"19",48,"Melbourne","VIC","Australia","3141","13. ROMP","Quality assurance",28,"EPSM",152
+"20",93,"Brisbane","QLD","Australia","4102","13. ROMP","",30,"EPSM",152
+"21",18,"Perth","WA","Australia","6009","13. ROMP","Treatment planning and modelling",33,"EPSM",151
+"22",99,"Coffs Harbour","NSW","Australia","2450","13. ROMP","Quality assurance",34,"EPSM",151
+"23",93,"Brisbane","QLD","Australia","4102","13. ROMP","",35,"EPSM",151
+"24",18,"Perth","WA","Australia","6009","14. Radiation Protection","",36,"EPSM",151
+"25",47,"Wollongong","NSW","Australia","2518","13. ROMP","New technologies and techniques",37,"EPSM",151
+"26",105,"Cranley","QLD","Australia","4350","13. ROMP","",38,"EPSM",151
+"27",107,"Penrith","NSW","Australia","2751","13. ROMP","Treatment planning and modelling",39,"EPSM",151
+"28",108,"Liverpool","NSW","Australia","BC1871","13. ROMP","Quality assurance",40,"EPSM",151
+"29",100,"Woolloongabba","QLD","Australia","4120","13. ROMP","Treatment planning and modelling",41,"EPSM",151
+"30",100,"Woolloongabba","QLD","Australia","4120","13. ROMP","Dosimetry",42,"EPSM",151
+"31",111,"Nsw","NSW","Australia","2217","13. ROMP","Brachytherapy",43,"EPSM",151
+"32",112,"Brisbane","QLD","Australia","4164","13. ROMP","Treatment planning and modelling",44,"EPSM",151
+"33",52,"Brisbane","QLD","Australia","4102","13. ROMP","Treatment planning and modelling",45,"EPSM",151
+"34",52,"Brisbane","QLD","Australia","4102","13. ROMP","Quality assurance",46,"EPSM",151
+"35",52,"Brisbane","QLD","Australia","4102","13. ROMP","Quality assurance",47,"EPSM",151
+"36",96,"Brisbane","QLD","Australia","4000","15. Radiology Physics","",48,"EPSM",151
+"37",114,"Sydney","NSW","Australia","2031","17. Other","",49,"EPSM",151
+"38",109,"Perth","WA","Australia","6105","01. Biomedical Engineering","",50,"EPSM",150
+"39",97,"Brisbane","QLD","Australia","4102","04. Computers/Programming/IT/Software","",51,"EPSM",150
+"40",97,"Brisbane","QLD","Australia","4102","04. Computers/Programming/IT/Software","",52,"EPSM",150
+"41",102,"Liverpool","NSW","Australia","2170","04. Computers/Programming/IT/Software","",54,"EPSM",150
+"42",51,"Wollongong","NSW","Australia","2500","13. ROMP","",55,"EPSM",150
+"43",113,"Adelaide","SA","Australia","5007","13. ROMP","Dosimetry",56,"EPSM",149
+"44",115,"Perth","WA","Australia","6010","13. ROMP","Dosimetry",57,"EPSM",149
+"45",122,"Perth","WA","Australia","6009","08. Nuclear Medicine Physics","",58,"EPSM",149
+"46",106,"Sydney","NSW","Australia","2065","13. ROMP","",59,"EPSM",149
+"47",126,"Orange","NSW","Australia","2800","13. ROMP","Dosimetry",61,"EPSM",149
+"48",129,"Christchurch","Canterbury","New Zealand","8023","01. Biomedical Engineering","",63,"EPSM",149
+"49",129,"Christchurch","Canterbury","New Zealand","8023","13. ROMP","Stereotactic radiotherapy & radiosurgery",64,"EPSM",149
+"50",130,"Brisbane","QLD","Australia","4101","13. ROMP","",65,"EPSM",149
+"51",131,"Orange","NSW","Australia","2800","04. Computers/Programming/IT/Software","",66,"EPSM",149
+"52",134,"Tamworth","NSW","Australia","2340","13. ROMP","Quality assurance",67,"EPSM",149
+"53",111,"Nsw","NSW","Australia","2217","13. ROMP","Image guidance and motion management",68,"EPSM",149
+"54",135,"Campbelltown","NSW","Australia","2560","13. ROMP","Quality assurance",69,"EPSM",149
+"55",116,"Melbourne","VIC","Australia","3004","05. Education and Professional Standards","",70,"EPSM",149
+"56",133,"Parkville","VIC","Australia","3052","11. Radiation Biology","",71,"EPSM",149
+"57",136,"Brisbane","QLD","Australia","4102","13. ROMP","New technologies and techniques",72,"EPSM",149
+"58",137,"Woolloongabba","QLD","Australia","4102","13. ROMP","Treatment planning and modelling",73,"EPSM",149
+"59",123,"Wahroonga","NSW","Australia","2076","13. ROMP","Image guidance and motion management",74,"EPSM",149
+"60",140,"Perth","WA","Australia","6062","13. ROMP","",75,"EPSM",149
+"61",127,"Perth","WA","Australia","6014","13. ROMP","",76,"EPSM",149
+"62",139,"Nedlands","WA","Australia","6010","13. ROMP","Dosimetry",77,"EPSM",149
+"63",144,"Liverpool BC","NSW","Australia","1871","13. ROMP","Treatment planning and modelling",79,"EPSM",149
+"64",144,"Liverpool BC","NSW","Australia","1871","13. ROMP","Treatment planning and modelling",80,"EPSM",149
+"65",144,"Liverpool BC","NSW","Australia","1871","13. ROMP","Treatment planning and modelling",81,"EPSM",149
+"66",146,"Lismore","NSW","Australia","2480","13. ROMP","Dosimetry",82,"EPSM",149
+"67",146,"Lismore","NSW","Australia","2480","13. ROMP","Dosimetry",83,"EPSM",149
+"68",146,"Lismore","NSW","Australia","2480","04. Computers/Programming/IT/Software","",84,"EPSM",149
+"69",145,"Melbourne","VIC","Australia","3000","13. ROMP","Stereotactic radiotherapy & radiosurgery",85,"EPSM",149
+"70",141,"Newcastle","NSW","Australia","2300","13. ROMP","Quality assurance",86,"EPSM",149
+"71",148,"Yallambie","VIC","Australia","3085","14. Radiation Protection","",87,"EPSM",149
+"72",149,"Liverpool","NSW","Australia","1871","13. ROMP","Treatment planning and modelling",88,"EPSM",149
+"73",142,"Hunter Region Mail Centre NSW 2310","NSW","Australia","2310","13. ROMP","Image guidance and motion management",89,"EPSM",149
+"74",150,"Melbourne","VIC","Australia","3192","13. ROMP","Targeted Therapies",90,"EPSM",149
+"75",138,"St Leonards","NSW","Australia","2065","13. ROMP","Stereotactic radiotherapy & radiosurgery",91,"EPSM",149
+"76",60,"Sydney","NSW","Australia","2217","13. ROMP","New technologies and techniques",92,"EPSM",149
+"77",152,"Liverpool BC","NSW","Australia","1871","13. ROMP","Quality assurance",93,"EPSM",149
+"78",152,"Liverpool BC","NSW","Australia","1871","13. ROMP","",94,"EPSM",149
+"79",153,"Camperdown","NSW","Australia","2050","13. ROMP","Treatment planning and modelling",95,"EPSM",149
+"80",98,"Newcastle","NSW","Australia","2298","05. Education and Professional Standards","",96,"EPSM",149
+"81",154,"Hamilton","","New Zealand","3204","13. ROMP","Treatment planning and modelling",97,"EPSM",149
+"82",151,"Sydney","NSW","Australia","2217","08. Nuclear Medicine Physics","",98,"EPSM",149
+"83",155,"Wollongong","NSW","Australia","2500","13. ROMP","Dosimetry",99,"EPSM",149
+"84",156,"Brisbane","QLD","Australia","4101","13. ROMP","",100,"EPSM",149
+"85",157,"Sydney","NSW","Australia","2152","15. Radiology Physics","",101,"EPSM",149
+"86",143,"Perth","WA","Australia","6009","13. ROMP","Stereotactic radiotherapy & radiosurgery",102,"EPSM",149
+"87",160,"Westmead","NSW","Australia","2145","13. ROMP","Dosimetry",103,"EPSM",149
+"88",121,"Wellington","","New Zealand","6021","13. ROMP","New technologies and techniques",104,"EPSM",149
+"89",159,"Melbourne","VIC","Australia","3000","15. Radiology Physics","",106,"EPSM",148
+"90",162,"Sunshine Coast Mc","QLD","Australia","4560","13. ROMP","New technologies and techniques",107,"EPSM",148
+"91",164,"Yallambie","VIC","Australia","3085","13. ROMP","Dosimetry",108,"EPSM",148
+"92",163,"Sydney","NSW","Australia","2082","11. Radiation Biology","",109,"EPSM",148
+"93",167,"New Lambton","NSW","Australia","2305","01. Biomedical Engineering","",110,"EPSM",148
+"94",132,"Christchurch","","New Zealand","8014","13. ROMP","Quality assurance",111,"EPSM",148
+"95",167,"New Lambton","NSW","Australia","2305","07. Machine Learning","",112,"EPSM",147
+"96",169,"Warwick Farm","NSW","Australia","2170","13. ROMP","Treatment planning and modelling",114,"EPSM",147
+"97",169,"Warwick Farm","NSW","Australia","2170","13. ROMP","Treatment planning and modelling",115,"EPSM",147
+"98",170,"Buderim","QLD","Australia","4556","13. ROMP","Treatment planning and modelling",116,"EPSM",147
+"99",161,"Melbourne","Vic","Australia","3004","13. ROMP","Treatment planning and modelling",117,"EPSM",147
+"100",59,"Christchurch","Canterbury","New Zealand","8011","13. ROMP","",118,"EPSM",147
+"101",172,"Yallambie","VIC","Australia","3085","13. ROMP","Stereotactic radiotherapy & radiosurgery",119,"EPSM",147
+"102",174,"South Yarra","VIC","Australia","3141","13. ROMP","Dosimetry",120,"EPSM",147
+"103",147,"Sydney","Nsw","Australia","2148","13. ROMP","New technologies and techniques",121,"EPSM",147
+"104",175,"Melbourne","","Australia","3085","13. ROMP","Dosimetry",122,"EPSM",146
+"105",178,"Perth","WA","Australia","6009","08. Nuclear Medicine Physics","",124,"EPSM",146
+"106",181,"North Lake","WA","Australia","6163","13. ROMP","Quality assurance",125,"EPSM",146
+"107",180,"Shenton Park, Wa","WA","Australia","6008","13. ROMP","Dosimetry",126,"EPSM",146
+"108",182,"Brisbane","QLD","Australia","4034","13. ROMP","",127,"EPSM",146
+"109",180,"Shenton Park, Wa","WA","Australia","6008","13. ROMP","Treatment planning and modelling",128,"EPSM",146
+"110",184,"Sydney","Nsw","Australia","2049","13. ROMP","Stereotactic radiotherapy & radiosurgery",129,"EPSM",146
+"111",185,"Christchurch","","New Zealand","8023","14. Radiation Protection","",130,"EPSM",146
+"112",187,"Southport","QLD","Australia","4215","13. ROMP","Treatment planning and modelling",132,"EPSM",145
+"113",183,"Melbourne","VIC","Australia","3085","13. ROMP","Dosimetry",133,"EPSM",145
+"114",87,"Melbourne","VIC","Australia","3163","14. Radiation Protection","",134,"EPSM",145
+"115",187,"Southport","QLD","Australia","4215","13. ROMP","Dosimetry",135,"EPSM",145
+"116",176,"Holland Park","QLD","Australia","4121","13. ROMP","Treatment planning and modelling",136,"EPSM",145
+"117",176,"Holland Park","QLD","Australia","4121","13. ROMP","Quality assurance",137,"EPSM",145
+"118",176,"Holland Park","QLD","Australia","4121","13. ROMP","Quality assurance",138,"EPSM",145
+"119",128,"Cook","ACT","Australia","2614","08. Nuclear Medicine Physics","",139,"EPSM",145
+"120",190,"Perth","WA","Australia","6103","08. Nuclear Medicine Physics","",140,"EPSM",145
+"121",191,"Coffs Harbour","NSW","Australia","2450","13. ROMP","Quality assurance",141,"EPSM",145
+"122",189,"Coffs Harbour","NSW","Australia","2450","13. ROMP","Treatment planning and modelling",142,"EPSM",145
+"123",192,"Liverpool","NSW","Australia","2150","13. ROMP","New technologies and techniques",143,"EPSM",144
+"124",191,"Coffs Harbour","NSW","Australia","2450","13. ROMP","Quality assurance",144,"EPSM",144
+"125",194,"Liverpool BC","NSW","Australia","1871","13. ROMP","Dosimetry",145,"EPSM",144
+"126",194,"Liverpool BC","NSW","Australia","1871","13. ROMP","Treatment planning and modelling",146,"EPSM",144
+"127",195,"Wagga Wagga","NSW","Australia","2650","13. ROMP","Treatment planning and modelling",147,"EPSM",144
+"128",125,"Woolloongabba","QLD","Australia","4102","13. ROMP","Stereotactic radiotherapy & radiosurgery",148,"EPSM",144
+"129",196,"Canberra","ACT","Australia","2601","08. Nuclear Medicine Physics","",149,"EPSM",144
+"130",171,"Wollongong","Nsw","Australia","2500","13. ROMP","Quality assurance",150,"EPSM",144
+"131",198,"Melbourne","VIC","Australia","3088","13. ROMP","Dosimetry",151,"EPSM",144
+"132",125,"Woolloongabba","QLD","Australia","4102","13. ROMP","Image guidance and motion management",152,"EPSM",144
+"133",200,"Melbourne","WA","Australia","3085","13. ROMP","Dosimetry",153,"EPSM",142
+"134",199,"Melbourne","VIC","Australia","3004","08. Nuclear Medicine Physics","",154,"EPSM",142
+"135",166,"Henley Beach","SA","Australia","5022","13. ROMP","Stereotactic radiotherapy & radiosurgery",155,"EPSM",142
+"136",201,"Newcastle","NSW","Australia","2310","13. ROMP","New technologies and techniques",156,"EPSM",142
+"137",201,"Newcastle","NSW","Australia","2310","13. ROMP","New technologies and techniques",157,"EPSM",142
+"138",116,"Melbourne","VIC","Australia","3004","13. ROMP","Brachytherapy",158,"EPSM",142
+"139",202,"Warwick Farm","NSW","Australia","2170","13. ROMP","Treatment planning and modelling",159,"EPSM",142
+"140",197,"Randwick","NSW","Australia","2031","17. Other","",160,"EPSM",141
+"141",203,"Newcastle","NSW","Australia","2298","06. Health Physics","",161,"EPSM",141
+"142",208,"Brisbane","QLD","Australia","4000","13. ROMP","",162,"EPSM",141
+"143",188,"Fitzroy North","VIC","Australia","3068","13. ROMP","Dosimetry",163,"EPSM",141
+"144",207,"Woolloongabba","QLD","Australia","4102","13. ROMP","Quality assurance",164,"EPSM",141
+"145",205,"Wollongong","NSW","Australia","2500","13. ROMP","Quality assurance",165,"EPSM",141
+"146",204,"Coffs Harbour","NSW","Australia","2450","11. Radiation Biology","",166,"EPSM",141
+"147",107,"Penrith","NSW","Australia","2751","13. ROMP","Image guidance and motion management",167,"EPSM",141
+"148",206,"Ettalong Beach","NSW","Australia","2257","13. ROMP","Image guidance and motion management",168,"EPSM",141
+"149",165,"Sydney","NSW","Australia","2016","01. Biomedical Engineering","",169,"EPSM",141
+"150",210,"Gold Coast","QLD","Australia","4209","14. Radiation Protection","",170,"EPSM",141
+"151",173,"Melbourne","VIC","Australia","3001","13. ROMP","Brachytherapy",171,"EPSM",141
+"152",117,"Bayswater","VIC","Australia","3153","16. Synchrotron Physics","",172,"EPSM",141
+"153",117,"Bayswater","VIC","Australia","3153","13. ROMP","Stereotactic radiotherapy & radiosurgery",173,"EPSM",141
+"154",211,"Melbourne","VIC","Australia","3057","15. Radiology Physics","",174,"EPSM",141
+"155",209,"Melbourne","VIC","Australia","3012","15. Radiology Physics","",175,"EPSM",141
+"156",213,"Melbourne","VIC","Australia","3004","13. ROMP","New technologies and techniques",177,"EPSM",141
+"157",214,"Adelaide","SA","Australia","5000","08. Nuclear Medicine Physics","",178,"EPSM",141
+"158",212,"Sydney","NSW","Australia","2050","11. Radiation Biology","",179,"EPSM",141
+"159",215,"Melbourne","VIC","Australia","3085","13. ROMP","Dosimetry",180,"EPSM",141
+"160",216,"Wollongong","Nsw","Australia","2500","13. ROMP","Dosimetry",181,"EPSM",141
+"161",217,"6105 - Kewdale","WA","Australia","6105","05. Education and Professional Standards","",182,"EPSM",141
+"162",218,"Kardinya","WA","Australia","6163","04. Computers/Programming/IT/Software","",183,"EPSM",141
+"163",219,"Ashfield","NSW","Australia","2131","13. ROMP","",184,"EPSM",141
+"164",151,"Sydney","NSW","Australia","2217","08. Nuclear Medicine Physics","",185,"EPSM",141
+"165",186,"Sydney","NSW","Australia","2070","10. Pre-clinical Imaging","",186,"EPSM",141
+"166",110,"Leeming","WA","Australia","6149","13. ROMP","Quality assurance",187,"EPSM",141
+"167",222,"Adelaide","South Australia","Australia","5089","13. ROMP","Hadron therapy",189,"EPSM",141
+"168",227,"Southport","QLD","Australia","4215","08. Nuclear Medicine Physics","",191,"EPSM",141
+"169",229,"Clayton Vic","VIC","Australia","3168","16. Synchrotron Physics","",192,"EPSM",141
+"170",114,"Sydney","NSW","Australia","2031","17. Other","",193,"EPSM",141
+"171",232,"Mosman Park","- Select State -","Australia","6009","03. Clinical Engineering","",194,"EPSM",141
+"172",203,"Newcastle","NSW","Australia","2298","06. Health Physics","",195,"EPSM",141
+"173",234,"Cardiff","","Australia","2285","13. ROMP","Treatment planning and modelling",196,"EPSM",141
+"174",226,"Port Kembla","NSW","Australia","2505","10. Pre-clinical Imaging","",197,"EPSM",141
+"175",236,"Melbourne","VIC","Australia","3085","13. ROMP","Dosimetry",198,"EPSM",141
+"176",235,"Melbourne","VIC","Australia","3150","13. ROMP","Quality assurance",199,"EPSM",141
+"177",237,"Callaghan","NSW","Australia","2308","13. ROMP","Treatment planning and modelling",200,"EPSM",141
+"178",228,"Port Macquarie","NSW","Australia","2444","13. ROMP","Quality assurance",202,"EPSM",141
+"179",241,"Sutherland","NSW","Australia","2232","13. ROMP","New technologies and techniques",203,"EPSM",141
+"180",151,"Sydney","NSW","Australia","2217","08. Nuclear Medicine Physics","",204,"EPSM",141
+"181",242,"6101","WA","Australia","6101","13. ROMP","Quality assurance",205,"EPSM",140
+"182",243,"Birtinya","QLD","Australia","4575","02. Biophysics","",206,"EPSM",140
+"183",243,"Birtinya","QLD","Australia","4575","15. Radiology Physics","",207,"EPSM",140
+"184",231,"Brisbane","QLD","Australia","4001","13. ROMP","Image guidance and motion management",208,"EPSM",140
+"185",230,"Melbourne","VIC","Australia","3000","13. ROMP","Treatment planning and modelling",209,"EPSM",140
+"186",208,"Brisbane","QLD","Australia","4000","15. Radiology Physics","",210,"EPSM",140
+"187",248,"Perth","WA","Australia","6009","15. Radiology Physics","",211,"EPSM",140
+"188",251,"Jacobs Well","QLD","Australia","4208","01. Biomedical Engineering","",212,"EPSM",139
+"189",244,"Mount Keira","NSW","Australia","2500","16. Synchrotron Physics","",213,"EPSM",139
+"190",249,"Perth","WA","Australia","6010","10. Pre-clinical Imaging","",214,"EPSM",137
+"191",252,"Perth","WA","Australia","6847","01. Biomedical Engineering","",215,"EPSM",134
+"192",252,"Perth","WA","Australia","6847","01. Biomedical Engineering","",216,"EPSM",134
+"193",253,"Perth","WA","Australia","6008","13. ROMP","Brachytherapy",217,"EPSM",134
+"194",208,"Brisbane","QLD","Australia","4000","13. ROMP","Treatment planning and modelling",218,"EPSM",134
+"195",254,"Perth","WA","Australia","6005","13. ROMP","Stereotactic radiotherapy & radiosurgery",219,"EPSM",134
+"196",255,"Perth","WA","Australia","6009","15. Radiology Physics","",220,"EPSM",134
+"197",250,"Brisbane","QLD","Australia","4029","13. ROMP","Treatment planning and modelling",221,"EPSM",134
+"198",247,"Sydney","NSW","Australia","1730","13. ROMP","Treatment planning and modelling",222,"EPSM",134
+"199",256,"Sydney","NSW","Australia","2065","13. ROMP","New technologies and techniques",223,"EPSM",133
+"200",258,"Blacktown","NSW","Australia","2148","13. ROMP","Treatment planning and modelling",224,"EPSM",133
+"201",257,"Melbourne","WA","Australia","3000","13. ROMP","Brachytherapy",225,"EPSM",133
+"202",259,"St Leonards","","Australia","2065","07. Machine Learning","",226,"EPSM",133
+"203",240,"Melbourne","VIC","Australia","3000","15. Radiology Physics","",227,"EPSM",133
+"204",240,"Melbourne","VIC","Australia","3000","15. Radiology Physics","",228,"EPSM",132
+"205",245,"Perth","WA","Australia","6009","09. Pharmaceutical Science","",229,"EPSM",132
+"206",262,"Newcastle","NSW","Australia","2290","13. ROMP","New technologies and techniques",230,"EPSM",131
+"207",270,"Melbourne","VIC","Australia","3199","13. ROMP","Quality assurance",231,"EPSM",130
+"208",279,"Perth","WA","Australia","6005","09. Pharmaceutical Science","",234,"EPSM",128
+"209",260,"Southport","QLD","Australia","4215","15. Radiology Physics","",238,"EPSM",126
+"210",281,"Melbourne","VIC","Australia","3082","13. ROMP","New technologies and techniques",239,"EPSM",126
+"211",120,"Sydney","NSW","Australia","2042","15. Radiology Physics","",240,"EPSM",126
+"212",284,"Perth","WA","Australia","6159","13. ROMP","Quality assurance",241,"EPSM",125
+"213",287,"Perth","WA","Australia","6012","17. Other","",242,"EPSM",125
+"214",208,"Brisbane","QLD","Australia","4000","13. ROMP","Treatment planning and modelling",245,"EPSM",125
+"215",356,"Osakasayma","Osaka","Japan","5898511","13. ROMP","Treatment planning and modelling",287,"EPSM",121
+"216",361,"Victoria","VIC","Australia","3082","11. Radiation Biology","",290,"EPSM",121
+"217",388,"Xi An","Shaanxi","China","710061","13. ROMP","Quality assurance",332,"EPSM",119
