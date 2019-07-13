@@ -42,7 +42,7 @@ These were saved as individual ```.csv``` files, named for the sheet name.
 The first sheet had details of the EPSM 2019 abstracts, 
 without dates but labelled in submission order.
 This contained columns for the submitter, title etc. 
-which were not saved to ```EPSM2019_subs.csv`` for privacy.
+which were not saved to ```EPSM2019_subs.csv``` for privacy.
 
 A second sheet listed the number of submissions per day for the EPSM meetings in Hobart 2017, Adelaide 2018 and Perth 2019.
 Dates were given as days prior to the conference opening date, in order to be able to compare conferences with different dates across years.
@@ -118,15 +118,16 @@ write.csv(PER_19[conference == "AOCMP", ],
           )
 ```
 
-Load up the significant dates and convert them all to ```day_prior```
+Load up the significant dates and convert them all to days-before-conference,
+then rearrange to long format for easier plotting.
 ```{r convert dates}
 events <- fread(file.path(raw_path, "conf.dates.csv"))
 # make a conference column that matches the other tables
 events[, conference := paste(city, year, sep = "_")]
 # calculate how long each period was
-days_allowed <- events[, .(initial = as.integer(difftime(call, close)),
-                           extend  = as.integer(difftime(close, extended)),
-                           waiting = as.integer(difftime(extended, date))
+days_allowed <- events[, .(initial  = as.integer(difftime(call, close)),
+                           extended = as.integer(difftime(close, extended)),
+                           waiting  = as.integer(difftime(extended, date))
                            ), 
                            by="conference,year,city"
                        ]
@@ -134,7 +135,7 @@ days_allowed <- events[, .(initial = as.integer(difftime(call, close)),
 days_allowed[, conference := factor(conference, levels = rev(conference))]
 # convert to long for for plotting
 days_long <- melt(days_allowed, 
-                  measure.vars = c("initial", "extend", "waiting"), 
+                  measure.vars = c("initial", "extended", "waiting"), 
                   variable.name = "period",
                   value.name = "days"
                   )
@@ -143,10 +144,13 @@ days_long <- melt(days_allowed,
 ggplot(days_long) + 
   aes(x = conference, y = days, fill = period) +
   geom_col(width = 0.5) +
-  scale_fill_manual(values=c("#56B4E9", "#E69F00", NA)) +
+  scale_fill_manual(name = "Submission\nPeriod",
+                    breaks = c("initial", "extended"), 
+                    values=c("#56B4E9", "#E69F00", NA)) +
   geom_hline(yintercept = 0, colour = "black") +
+  geom_vline(xintercept = 3.5, linetype = 2, size = 0.1) +
   ylab("days before meeting") +
-  theme(legend.position=c(.8, .5)) +
+  theme(legend.position=c(.85, .8)) +
   coord_flip()
 
 ```
