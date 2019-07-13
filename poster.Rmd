@@ -70,7 +70,7 @@ clean_path <- "data"
 
 # Read the raw submissions to get a submission date for each abstract
 MS <- fread(file.path(raw_path, "Registration.csv"))
-# Filenames without spaces are safer. The Perth data here is EPSM & AOCMP
+# Filenames without spaces are safer. The Perth data is EPSM & AOCMP combined
 setnames(MS, c("day_prior", "Hobart_2017", "Adelaide_2018", "Combined_2019"))
 # Clean up the day_prior column, converting the digits before the first " "
 MS[, day_prior := lapply(tstrsplit(day_prior, " ")[1], as.integer)]
@@ -116,6 +116,27 @@ write.csv(PER_19[conference == "EPSM", ],
 write.csv(PER_19[conference == "AOCMP", ],
           file = file.path(clean_path, "AOCMP_2019.csv")
           )
+```
+
+Load up the significant dates and convert them all to ```day_prior```
+```{r convert dates}
+events <- fread(file.path(raw_path, "conf.dates.csv"))
+# make a conference column that matches the other tables
+events[, conference := paste(city, year, sep = "_")]
+# calculate how long each period was
+days_allowed <- events[, .(initial = as.integer(difftime(call, close)),
+                           extend  = as.integer(difftime(close, extended)),
+                           rest    = as.integer(difftime(extended, date))
+                           ), 
+                           by="conference,year,city"
+                       ]
+# convert to long for for plotting
+days_long <- melt(days_allowed, measure.vars = c("initial", "extend", "rest"))
+ggplot(days_long) + 
+  aes(x = conference, y = value, fill = variable) +
+  geom_col() + 
+  coord_flip()
+
 ```
 
 # analyse this
