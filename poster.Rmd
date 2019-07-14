@@ -155,14 +155,21 @@ ggplot(days_long) +
 
 ```
 
+EPSM conferences vary in the same length of time they give to submit abstracts, 
+although they all call for papers about `r round(abs(days_allowed[, mean(initial)]))` days before the conference. 
+EPSM 2013 in Perth looks like a bit of an outlier, starting ealier and running longer.
+Even the extension period was more than twice that of other conferences.
+
 # analyse this
+
+
 
 # show and tell
 
 # why? just, why?
 
 # sharing the blame
-[^1^]: Expressed most clearly in the Underpants Gnome credo<br>
+[^1^]: Expressed most clearly by the Underpants Gnomes<br>
  1. collect underpants<br>
  2. ???<br>
  3. profit!
