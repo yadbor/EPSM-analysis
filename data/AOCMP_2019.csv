@@ -1,118 +1,22 @@
-"","submitter","city","state","country","code","theme","sub_theme","ID","conference","day_prior"
-"1",40,"Gurgaon","Haryana","India","122002","15. Radiology Physics","",8,"AOCMP",166
-"2",53,"Dhaka","Dhaka","Bangladesh","1344","13. ROMP","Treatment planning and modelling",13,"AOCMP",159
-"3",54,"dhaka","","Bangladesh","1206","12. Radiation Modelling","",14,"AOCMP",159
-"4",85,"Dhaka","","Bangladesh","1212","13. ROMP","Stereotactic radiotherapy & radiosurgery",22,"AOCMP",154
-"5",86,"Putrajaya","Putrajaya","Malaysia","62250","08. Nuclear Medicine Physics","",24,"AOCMP",154
-"6",91,"Bharatpur","","Nepal","44200","13. ROMP","Treatment planning and modelling",29,"AOCMP",152
-"7",94,"Peshawar","KP","Pakistan","25000","13. ROMP","Quality assurance",31,"AOCMP",152
-"8",95,"Ibaraki","","Japan","305-8576","13. ROMP","Quality assurance",32,"AOCMP",151
-"9",118,"Kanazawa","","Japan","9200923","13. ROMP","Dosimetry",53,"AOCMP",150
-"10",56,"Kanazawa","Ishikawa","Japan","920-0942","13. ROMP","Quality assurance",78,"AOCMP",149
-"11",104,"Seoul","","South Korea","04808","13. ROMP","Brachytherapy",105,"AOCMP",149
-"12",168,"Kasuga","Fukuoka","Japan","816-0805","08. Nuclear Medicine Physics","",113,"AOCMP",147
-"13",177,"Misan","","Iraq","62010","14. Radiation Protection","",123,"AOCMP",146
-"14",158,"Kanazawa","","Japan","9200935","13. ROMP","Quality assurance",131,"AOCMP",146
-"15",49,"Jaipur","Rajasthan","India","302004","14. Radiation Protection","",176,"AOCMP",141
-"16",224,"Kuala Lumpur","","Malaysia","50300","13. ROMP","Treatment planning and modelling",188,"AOCMP",141
-"17",225,"Hiroshima","Hiroshima","Japan","732-0057","13. ROMP","",190,"AOCMP",141
-"18",238,"Riyadh","","Saudi Arabia","7983-13525","15. Radiology Physics","",201,"AOCMP",141
-"19",193,"New Taipei City","","Taiwan","24254","13. ROMP","New technologies and techniques",232,"AOCMP",130
-"20",280,"Lucknow","Uttar Pradesh","India","226012","13. ROMP","Brachytherapy",235,"AOCMP",127
-"21",224,"Kuala Lumpur","","Malaysia","50300","17. Other","",236,"AOCMP",126
-"22",271,"Zhengzhou","Henan Province","China","450000","13. ROMP","Quality assurance",237,"AOCMP",126
-"23",272,"Wuhan","Hubei","China","430023","13. ROMP","Quality assurance",243,"AOCMP",125
-"24",283,"Dhaka","","Bangladesh","1344","01. Biomedical Engineering","",244,"AOCMP",125
-"25",221,"Kobe","Hyogo","Japan","650-0046","13. ROMP","Quality assurance",246,"AOCMP",125
-"26",309,"Shah Alam","Selangor","Malaysia","40000","06. Health Physics","",247,"AOCMP",125
-"27",314,"Perth","WA","Australia","6009","09. Pharmaceutical Science","",248,"AOCMP",125
-"28",311,"Osakasayama","Osaka","Japan","5898511","06. Health Physics","",249,"AOCMP",124
-"29",310,"Bhaktapur","Bagmati","Nepal","00977","02. Biophysics","",250,"AOCMP",124
-"30",310,"Bhaktapur","Bagmati","Nepal","00977","02. Biophysics","",251,"AOCMP",124
-"31",311,"Osakasayama","Osaka","Japan","5898511","13. ROMP","Quality assurance",252,"AOCMP",124
-"32",316,"Sakai City","","Japan","598-0102","10. Pre-clinical Imaging","",253,"AOCMP",124
-"33",288,"Osakassayama","","Japan","5890004","14. Radiation Protection","",254,"AOCMP",124
-"34",319,"Osaka","","Japan","589-8511","13. ROMP","Treatment planning and modelling",255,"AOCMP",124
-"35",318,"Toyoake-city, Aichi","","Japan","470-1192","03. Clinical Engineering","",256,"AOCMP",124
-"36",318,"Toyoake-city, Aichi","","Japan","470-1192","03. Clinical Engineering","",257,"AOCMP",124
-"37",322,"Kilburn","SA","Australia","5084","17. Other","",258,"AOCMP",124
-"38",278,"Nagoya-city","Aichi-prefecture","Japan","464-8681","13. ROMP","Image guidance and motion management",259,"AOCMP",124
-"39",323,"Chengdu","","China","610041","07. Machine Learning","",260,"AOCMP",123
-"40",208,"Brisbane","QLD","Australia","4000","13. ROMP","Brachytherapy",261,"AOCMP",123
-"41",83,"Osaka-Sayama","Osaka","Japan","589-8511","13. ROMP","Quality assurance",262,"AOCMP",123
-"42",326,"Chiba City Inage-ku","","Japan","263-8555","13. ROMP","Dosimetry",263,"AOCMP",123
-"43",327,"Wenzhou","Zhejiang","China","325035","10. Pre-clinical Imaging","",264,"AOCMP",123
-"44",327,"Wenzhou","Zhejiang","China","325035","02. Biophysics","",265,"AOCMP",122
-"45",330,"Beijing","Beijing","China","100021","07. Machine Learning","",266,"AOCMP",122
-"46",331,"Brisbane","QLD","Australia","4107","05. Education and Professional Standards","",267,"AOCMP",122
-"47",332,"Bendigo","VIC","Australia","3550","13. ROMP","Treatment planning and modelling",268,"AOCMP",122
-"48",293,"Seoul","","South Korea","03080","13. ROMP","New technologies and techniques",269,"AOCMP",122
-"49",333,"Hyderabad","Telangana State","India","500 032","01. Biomedical Engineering","",270,"AOCMP",122
-"50",276,"Seoul","","South Korea","06591","07. Machine Learning","",271,"AOCMP",122
-"51",61,"Sendai","","Japan","980-8575","14. Radiation Protection","",272,"AOCMP",122
-"52",337,"Wakayama","","Japan","641-8509","13. ROMP","Image guidance and motion management",273,"AOCMP",122
-"53",340,"Oomuta","Fukuoka","Japan","836-8505","13. ROMP","Brachytherapy",274,"AOCMP",122
-"54",308,"Buriram","","Thailand","31180","08. Nuclear Medicine Physics","",275,"AOCMP",122
-"55",329,"Osaka","","Japan","577-0847","13. ROMP","Treatment planning and modelling",276,"AOCMP",122
-"56",329,"Osaka","","Japan","577-0847","13. ROMP","New technologies and techniques",277,"AOCMP",121
-"57",329,"Osaka","","Japan","577-0847","13. ROMP","New technologies and techniques",278,"AOCMP",121
-"58",347,"Shanghai","","China","200030","07. Machine Learning","",279,"AOCMP",121
-"59",331,"Brisbane","QLD","Australia","4107","13. ROMP","Quality assurance",280,"AOCMP",121
-"60",350,"Seoul","","South Korea","06591","13. ROMP","Treatment planning and modelling",281,"AOCMP",121
-"61",353,"Seoul","","South Korea","06591","13. ROMP","Brachytherapy",282,"AOCMP",121
-"62",334,"Nagakute","aichi","Japan","480-1195","13. ROMP","",283,"AOCMP",121
-"63",338,"Chiba","Chiba","Japan","260-8717","13. ROMP","Dosimetry",284,"AOCMP",121
-"64",358,"Seoul","","South Korea","137-701","07. Machine Learning","",285,"AOCMP",121
-"65",274,"nagpur","Maharashra","India","440026","13. ROMP","Quality assurance",286,"AOCMP",121
-"66",360,"Kanagawa","","Japan","252-0373","17. Other","",288,"AOCMP",121
-"67",359,"Osaka-sayama","Osaka","Japan","589-8511","13. ROMP","",289,"AOCMP",121
-"68",273,"Subang Jaya","Selangor","Malaysia","47500","08. Nuclear Medicine Physics","",291,"AOCMP",121
-"69",357,"Chiba","","Japan","260-8717","13. ROMP","Quality assurance",292,"AOCMP",121
-"70",246,"Chengdu","Please Select","China","610041","13. ROMP","Quality assurance",293,"AOCMP",121
-"71",336,"Sagamihara, Kanagawa","","Japan","252-0373","13. ROMP","Brachytherapy",294,"AOCMP",121
-"72",363,"Adelaide","SA","Australia","5001","11. Radiation Biology","",295,"AOCMP",121
-"73",324,"Lucknow","Uttar Pradesh","India","226003","13. ROMP","Hadron therapy",296,"AOCMP",121
-"74",355,"Omuta","Fukuoka","Japan","836-8505","13. ROMP","Brachytherapy",297,"AOCMP",121
-"75",352,"Adelaide","SA","Australia","5001","13. ROMP","New technologies and techniques",298,"AOCMP",121
-"76",365,"Tokyo","","Japan","116-0012","17. Other","",299,"AOCMP",121
-"77",367,"Dhaka","","Bangladesh","Dhaka-1344","01. Biomedical Engineering","",300,"AOCMP",121
-"78",101,"Tokyo","","Japan","113-8655","07. Machine Learning","",301,"AOCMP",121
-"79",368,"Osakasayama","Osaka","Japan","859-8511","14. Radiation Protection","",302,"AOCMP",120
-"80",321,"Sapporo","Hokkaido","Japan","003-0804","13. ROMP","Brachytherapy",303,"AOCMP",120
-"81",370,"Otsu,Shiga","","Japan","520-8511","13. ROMP","Treatment planning and modelling",304,"AOCMP",120
-"82",372,"Dhaka","","Bangladesh","1230","13. ROMP","Dosimetry",305,"AOCMP",120
-"83",373,"Sagamihara","Kanagawa","Japan","252-0373","14. Radiation Protection","",306,"AOCMP",120
-"84",375,"Beijing","","China","100021","07. Machine Learning","",307,"AOCMP",120
-"85",369,"Sendai","Miyagi","Japan","980-8574","13. ROMP","Treatment planning and modelling",308,"AOCMP",120
-"86",371,"Sendai","Miyagi","Japan","9808574","13. ROMP","Quality assurance",309,"AOCMP",120
-"87",377,"Bentley","WA","Australia","6163","02. Biophysics","",310,"AOCMP",120
-"88",378,"Canberra","ACT","Australia","2605","15. Radiology Physics","",311,"AOCMP",120
-"89",362,"Melbourne","VIC","Australia","3000","13. ROMP","New technologies and techniques",312,"AOCMP",120
-"90",362,"Melbourne","VIC","Australia","3000","05. Education and Professional Standards","",313,"AOCMP",120
-"91",379,"Seville Groove","WA","Australia","6112","13. ROMP","",314,"AOCMP",120
-"92",380,"Dhaka","","Bangladesh","1230","13. ROMP","Brachytherapy",315,"AOCMP",120
-"93",376,"Manila","","Philippines","1000","13. ROMP","New technologies and techniques",316,"AOCMP",120
-"94",354,"Canberra","ACT","Australia","2605","16. Synchrotron Physics","",317,"AOCMP",120
-"95",348,"Sendai","","Japan","980-8574","07. Machine Learning","",318,"AOCMP",120
-"96",381,"Lalitpur","3","Nepal","00977","13. ROMP","Dosimetry",319,"AOCMP",120
-"97",383,"Seoul","","South Korea","06591","08. Nuclear Medicine Physics","",320,"AOCMP",120
-"98",362,"Melbourne","VIC","Australia","3000","13. ROMP","Quality assurance",321,"AOCMP",120
-"99",290,"Tokyo","","Japan","1628666","13. ROMP","Stereotactic radiotherapy & radiosurgery",322,"AOCMP",120
-"100",290,"Tokyo","","Japan","1628666","13. ROMP","Dosimetry",323,"AOCMP",120
-"101",381,"Lalitpur","3","Nepal","00977","05. Education and Professional Standards","",324,"AOCMP",120
-"102",356,"Osakasayma","Osaka","Japan","5898511","13. ROMP","Treatment planning and modelling",325,"AOCMP",119
-"103",384,"Seoul","","South Korea","06591","17. Other","",326,"AOCMP",119
-"104",377,"Bentley","WA","Australia","6163","02. Biophysics","",327,"AOCMP",119
-"105",364,"Seoul","","South Korea","06591","13. ROMP","Dosimetry",328,"AOCMP",119
-"106",374,"Tokyo","","Japan","113-8655","13. ROMP","Quality assurance",329,"AOCMP",119
-"107",387,"Wuhan","Hubei","China","430072","13. ROMP","Treatment planning and modelling",330,"AOCMP",119
-"108",386,"Kanazawa","","Japan","9200941","13. ROMP","New technologies and techniques",331,"AOCMP",119
-"109",389,"Beijing","","China","100191","07. Machine Learning","",334,"AOCMP",118
-"110",53,"Dhaka","Dhaka","Bangladesh","1344","13. ROMP","Image guidance and motion management",335,"AOCMP",118
-"111",385,"Gazipur","Gazipur","Bangladesh","1704","15. Radiology Physics","",336,"AOCMP",118
-"112",390,"savar","","Bangladesh","1344","01. Biomedical Engineering","",337,"AOCMP",118
-"113",53,"Dhaka","Dhaka","Bangladesh","1344","13. ROMP","Quality assurance",338,"AOCMP",118
-"114",341,"Osaka","","Japan","541-8567","13. ROMP","Treatment planning and modelling",339,"AOCMP",118
-"115",388,"Xi An","Shaanxi","China","710061","13. ROMP","Quality assurance",340,"AOCMP",118
-"116",285,"Bangalore","Karnataka","India","560027","13. ROMP","New technologies and techniques",341,"AOCMP",118
-"117",282,"Mumbai","","India","400012","13. ROMP","Quality assurance",342,"AOCMP",118
+"day_prior","AOCMP_2019"
+-166,1
+-159,2
+-154,2
+-152,2
+-151,1
+-150,1
+-149,2
+-147,1
+-146,2
+-141,4
+-130,1
+-127,1
+-126,2
+-125,5
+-124,11
+-123,5
+-122,12
+-121,23
+-120,23
+-119,7
+-118,9
