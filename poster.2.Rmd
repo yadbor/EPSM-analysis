@@ -1,0 +1,150 @@
+---
+title: "Untitled"
+author:
+- name: Robert Day
+  affiliation: Royal Perth Hospital
+- name: Tegan Rourke
+  affiliation: Sir Charles Gaidner Hospital
+- name: Hilary
+  affiliation: The Conference Company
+
+date: "7/11/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r prologue, include=FALSE}
+# Load needed libraries and set file locations
+library(data.table)
+library(stringr)
+library(ggplot2)
+
+raw_path <- "data-raw"
+clean_path <- "data"
+```
+
+# prologue
+
+In 2013 EPSM came to Perth, and for various reasons members of the WA branch organised the abstract submissions, scheduling and production of the abstract book. Just like the old days. This gave us direct access to the submission data, so like good scientists we looked at the time series. What we saw was that the submitters 
+
+ a) left their submission to the very last minute
+ b) definitely expected a deadline extension
+
+Has anything changed since then?
+
+# modus
+
+Just as all happy families are the same, so all happy data analyses are alike.
+They all follow the tripartite path of the UG[^1^] syllogism:
+
+  * munge
+  * analyse
+  * present
+  
+## raw data
+
+The submission data from http://theconferencecompany.com were in an Excel&trade;
+workbook with several sheets, formatted to their requirements.
+These were saved as individual ```.csv``` files, named for the sheet name.
+The first sheet had details of the EPSM 2019 abstracts, 
+without dates but labelled in submission order.
+This contained columns for the submitter, title etc. 
+which were not saved to ```EPSM2019_subs.csv``` for privacy.
+
+A second sheet listed the number of submissions per day for the EPSM meetings in Hobart 2017, Adelaide 2018 and Perth 2019.
+Dates were given as days prior to the conference opening date, in order to be able to compare conferences with different dates across years.
+The columns for date and submissions each day were saved as ```Registration.csv``` file, as was the complete sheet of abstract details.
+Submissions from EPSM 2013 were already in a ```.csv``` file using calendar dates.
+These were converted to days prior to allow comparison.
+
+EPSM and AOCMP abstracts were not seperated in the spreadsheet,
+so a list of ID numbers for AOCMP abstracts supplied separately by email was used to classify the abstracts.
+This list was saved as a single column ``AOCMP_abstracts.csv`` file.
+
+Finally, significant dates for each conference were gathered from emails and previous conference websites, making use of http://www.archive.org as needed, and saved in ```conf.dates.csv```.
+
+see ```clean_2019.Rmd``` for details.
+
+## Compare periods
+
+Read the significant dates and convert them all to days-before-conference,
+then rearrange to long format for easier plotting.
+```{r convert dates}
+events <- fread(file.path(raw_path, "conf.dates.csv"))
+# make a conference column that matches the other tables
+events[, conference := paste(city, year, sep = "_")]
+# calculate how long each period was
+days_allowed <- events[, .(total    = as.integer(difftime(call, date)),
+                           initial  = as.integer(difftime(call, close)),
+                           extended = as.integer(difftime(close, extended)),
+                           waiting  = as.integer(difftime(extended, date))
+                           ), 
+                           by="conference,year,city"
+                       ]
+# Make conference an ordered factor so ggplot doesn't rearrange
+days_allowed[, conference := factor(conference, levels = rev(conference))]
+# convert to long for for plotting
+days_long <- melt(days_allowed, 
+                  measure.vars = c("initial", "extended", "waiting"), 
+                  variable.name = "period",
+                  value.name = "days"
+                  )
+```
+
+Finally, load the submission days for all the conferences into a unified format.
+```{r }
+sub_file_names <- file.path(clean_path, paste0(events[, conference], ".csv"))
+#sub_files[, filename := file.path(clean_path, paste0(conference, ".csv"))]
+SUBS <- data.table::data.table(conference = events[, conference],
+                               filename   = sub_file_names
+                      )[, fread(filename, col.names = c("day_prior", "n")), by=conference]
+```
+# analyse this
+
+```{r fig.cap='Time allowed for submissions by conference'}
+# Use a colourblind friendly palette with grey
+ggplot(days_long) + 
+  aes(x = conference, y = days, fill = period) +
+  geom_col(width = 0.5) +
+  scale_fill_manual(name = "Submission\nPeriod",
+                    breaks = c("initial", "extended"), 
+                    values=c("#56B4E9", "#E69F00", NA)) +
+  geom_hline(yintercept = 0, colour = "black") +
+  geom_vline(xintercept = 3.5, linetype = 2, size = 0.1) +
+  ylab("days before meeting") +
+  theme(legend.position=c(.80, .8)) +
+  coord_flip()
+
+```
+
+EPSM conferences vary in the length of time they allow for submitting abstracts, 
+although they all call for papers about `r round(abs(days_allowed[, mean(total)]), -1)` days before the conference.
+EPSM 2013 in Perth looks like a bit of an outlier, starting earlier and running longer,
+with an extension period about twice that of other conferences.
+These meant that there was less time between the last submisison and the conference starting.
+```{r duration_table, echo=FALSE}
+print(days_allowed[city != "AOCMP", 
+                   lapply(.SD, function (x) -1*x), 
+                   .SDcols = c("total", "initial", "extended", "waiting"), 
+                   by = "year,city"
+                   ]
+      )
+```
+
+There were plenty of papers at each conference.
+Perth 2019 is a monster with the assistance of AOCMP.
+```{r}
+print(SUBS[, .(total = sum(n)), by=conference])
+```
+
+# show and tell
+
+# why? just, why?
+
+# sharing the blame
+[^1^]: Expressed most clearly by the Underpants Gnomes<br>
+ 1. collect underpants<br>
+ 2. ???<br>
+ 3. profit!
