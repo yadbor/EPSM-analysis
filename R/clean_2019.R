@@ -45,6 +45,9 @@ all_days <- c(sub_days, rep(last(sub_days), nrow(PER_19)-length(sub_days)))
 # Make the days prior negative, as they all come before conference date
 PER_19[, day_prior := -1 * abs(all_days)]
 
+# make the ID a character column to match 2013
+PER_19[, ID := as.character(ID)]
+
 # Write out seperate EPSM and AOCMP submission files (already have the combined one above)
 write.csv(PER_19[conference == "EPSM", .(Perth_2019 = .N), by = day_prior],
           file = file.path(clean_path, "Perth_2019.csv"),
