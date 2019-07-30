@@ -46,7 +46,7 @@ all_days <- c(sub_days, rep(last(sub_days), nrow(PER_19)-length(sub_days)))
 PER_19[, day_prior := -1 * abs(all_days)]
 
 # make the ID a character column to match 2013
-PER_19[, ID := as.character(ID)]
+PER_19[, ID := paste("ID", ID, sep = "_")]
 
 # Write out seperate EPSM and AOCMP submission files (already have the combined one above)
 write.csv(PER_19[conference == "EPSM", .(Perth_2019 = .N), by = day_prior],
