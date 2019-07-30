@@ -51,9 +51,9 @@ These were saved as individual ```.csv``` files, named for the sheet name.
 The first sheet had details of the EPSM 2019 abstracts, 
 without dates but labelled in submission order.
 This contained columns for the submitter, title etc. 
-which were not saved to ```EPSM2019_subs.csv``` for privacy.
+which were not saved to ```EPSM2019_subs.csv``` to maintain submitter privacy.
 
-A second sheet listed the number of submissions per day for the EPSM meetings in Hobart 2017, Adelaide 2018 and Perth 2019.
+A second sheet listed the number of submissions recieved each day for the EPSM meetings in Hobart 2017, Adelaide 2018 and Perth 2019.
 Dates were given as days prior to the conference opening date, in order to be able to compare conferences with different dates across years.
 The columns for date and submissions each day were saved as ```Registration.csv``` file, as was the complete sheet of abstract details.
 Submissions from EPSM 2013 were already in a ```.csv``` file using calendar dates.
@@ -66,6 +66,11 @@ This list was saved as a single column ``AOCMP_abstracts.csv`` file.
 Finally, significant dates for each conference were gathered from emails and previous conference websites, making use of http://www.archive.org as needed, and saved in ```conf.dates.csv```.
 
 see ```clean_2019.Rmd``` for details.
+
+  1. load submission day files
+  2. clean
+  3. save to data_clean
+
 
 ## Compare periods
 
@@ -175,7 +180,7 @@ print(tbl[, total, by=conference])
 Perth 2019 is a monster with the assistance of AOCMP, weighing in at `r tbl[conference %like% 2019, sum(total)]` papers in total.
 
 Hobart in 2017 looks a bit light on, but this may be due to some late submissions 
-being missed [^2^]
+being missed[^2^].
 
 How many in each group?
 ```{r }
@@ -200,14 +205,28 @@ ggplot(tbl_long) +
          geom_col()
 ```
 
-# what was submitted
+# what themes abounded?
+
+Load the submission details for the two Perth meetings,
+as we have no others.
 ```{r }
-# Add a year marker to so can differentiate when merged
-PER_13[, year := 2013]
-PER_19[, year := 2019]
-# Merge with the common set of columns
-common_cols <- c("submitter", "city", "state","country", "theme", "ID", "conference", "year")
-PER <- rbind(PER_13[, ..common_cols], PER_19[, ..common_cols])
+details <- data.table(file = dir(path = clean_path, 
+                                 pattern = "details.csv", 
+                                 full.names = TRUE)
+)
+details[, year := str_match(file, "\\_(\\d{4})\\_")[,2]]
+PER <- details[, fread(file), by=year]
+
+```
+
+
+```{r }
+# # Add a year marker to so can differentiate when merged
+# PER_13[, year := 2013]
+# PER_19[, year := 2019]
+# # Merge with the common set of columns
+# common_cols <- c("submitter", "city", "state","country", "theme", "ID", "conference", "year")
+# PER <- rbind(PER_13[, ..common_cols], PER_19[, ..common_cols])
 # Make some broad classes of submission, based on which theme was chosen
 PER[theme %like% "Radiology", type := "Radiology"]
 PER[theme %like% "ROMP|Radiotherapy", type := "ROMP"]
@@ -230,14 +249,16 @@ numbers <- PER[, .N, by = "type,meeting"][, .(type, percent = 100*(N/sum(N))), b
 ggplot(numbers)+aes(x = meeting, y = percent, fill = type) + geom_col()
 ```
 
-The percetnage of abstracts in each discipline seem fairly stable over time, although EPSM 2013 had a higher proportion of ROMP and Engineering related content and less Nuclear Medcine or Health Physics.
+The percentage of abstracts in each discipline seem fairly stable over time, although EPSM 2013 had a higher proportion of ROMP and Engineering related content and less Nuclear Medcine or Health Physics. EPSM 2013 may have had more Engineering abstracts because there were Engineers on the conference committee actively rounding up submissions.
+
+No-one seems to love Health Physics, which is sad.
 
 ```{r }
 print(dcast(numbers, type~meeting)[, lapply(.SD, round, 2), by = type])
 ```
 
 AOCMP members seem less interested in Radiology Physics, with a lot more 'other' abstracts.
-This may be at leat in part to the wide range of available themes in 2019.
+This may be at least in part to the wide range of available themes in 2019.
 
 # show and tell
 
@@ -249,4 +270,4 @@ This may be at leat in part to the wide range of available themes in 2019.
  2. ???<br>
  3. profit!
  
-[^2^] Rourke, T. 2019 Personal communication.
+[^2^]: Rourke, T. 2019 Personal communication.
