@@ -73,48 +73,69 @@ Read the significant dates and convert them all to days-before-conference,
 then rearrange to long format for easier plotting.
 ```{r convert dates}
 events <- fread(file.path(raw_path, "conf.dates.csv"))
-# make a conference column that matches the other tables
+# Make a conference column that matches the other tables
 events[, conference := paste(city, year, sep = "_")]
+# add the file names
+events[, filename := file.path(clean_path, paste0(conference, ".csv"))]
 
-# the same information converted to day_prior
+# The same information, converted to day prior to conference
 event_days <- events[, lapply(.SD, 
                               function(x) as.integer(difftime(x, date))
                               ),
                      .SDcols = c("call", "close", "extended"), 
                      by="conference,year,city"]
+# Add a key to make indexing faster and easier
+setkey(event_days, conference)
 
-# calculate how long each period was
-days_allowed <- event_days[, .(total = call, 
-                               initial = call-close, 
-                               extended = close-extended, 
-                               waiting =extended), 
-                           by="conference,year,city"]
+# Calculate how long each period was
+period <- event_days[, .(total    = call, 
+                         initial  = call-close, 
+                         extended = close-extended, 
+                         waiting  = extended), 
+                     by="conference,year,city"]
 
 # Make conference an ordered factor so ggplot doesn't rearrange
-days_allowed[, conference := factor(conference, levels = rev(conference))]
-# convert to long for for plotting
-days_long <- melt(days_allowed, 
-                  measure.vars = c("initial", "extended", "waiting"), 
-                  variable.name = "period",
-                  value.name = "days"
-                  )
+period[, conference := factor(conference, period[order(year), ]$conference)]
+# Convert to long for for plotting
+period_long <- melt(period, 
+                    measure.vars = c("initial", "extended", "waiting"), 
+                    variable.name = "period",
+                    value.name = "days"
+                   )
+# Add a key to make indexing faster and easier
+setkey(period_long, conference)
 ```
 
 Finally, load the submission days for all the conferences into a unified format, 
 then generate the cumulative sum of submissions, in order of submission.
 ```{r }
-sub_file_names <- file.path(clean_path, paste0(events[, conference], ".csv"))
-#sub_files[, filename := file.path(clean_path, paste0(conference, ".csv"))]
-SUBS <- data.table::data.table(conference = events[, conference],
-                               filename   = sub_file_names
-                      )[, fread(filename, col.names = c("day_prior", "n")), by=conference]
-SUBS[, sum := cumsum(n[order(day_prior)]), by=conference]
+SUBS <- events[, fread(filename, col.names = c("day", "n")), by=conference]
+# Add a key to make indexing faster and easier
+setkey(SUBS, conference)
+# Calcuate the total number of submissions up to each day
+SUBS[, sum := cumsum(n[order(day)]), by=conference]
+```
+Classify the submissions into 
+
+  * premature -- before call for papers
+  * early -- before the close 
+  * lucky -- after the first close but before the extention period ends
+  * late -- after the extended period closes (won't be any of those, right?)
+
+```{r}
+SUBS[day < event_days[conference, close], status := 'early', by=conference]
+SUBS[day < event_days[conference, call], status := 'premature', by=conference]
+SUBS[day > event_days[conference, extended], status := 'late', by=conference]
+# The only un-lablled statuses must be the lucky ones
+SUBS[is.na(status), status := "lucky"]
+# Make the status a factor and put in temporal order
+SUBS[, status := factor(status, levels = c("premature", "early", "lucky", "late"))]
 ```
 # analyse this
 
 ```{r fig.cap='Time allowed for submissions by conference'}
 # Use a colourblind friendly palette with grey
-ggplot(days_long) + 
+ggplot(period_long) + 
   aes(x = conference, y = days, fill = period) +
   geom_col(width = 0.5) +
   scale_fill_manual(name = "Submission\nPeriod",
@@ -125,28 +146,98 @@ ggplot(days_long) +
   ylab("days before meeting") +
   theme(legend.position=c(.80, .8)) +
   coord_flip()
-
 ```
 
 EPSM conferences vary slightly in the length of time they allow for submitting abstracts, 
-although they all call for papers about `r round(abs(days_allowed[, mean(total)]), -1)` days before the conference.
+although they all call for papers about `r round(abs(period[, mean(total)]), -1)` days before the conference.
 EPSM 2013 in Perth looks like an outlier, starting earlier and running longer,
 with an extension period about twice that of other conferences.
 These meant that there was less time between the last submisison and the conference starting.
 ```{r duration_table, echo=FALSE}
-print(days_allowed[city != "AOCMP", 
-                   lapply(.SD, function (x) -1*x), 
-                   .SDcols = c("total", "initial", "extended", "waiting"), 
-                   by = "year,city"
-                   ]
-      )
+# Make the days positive so they read better
+print(period[city != "AOCMP", abs(.SD), 
+             .SDcols = c("total", "initial", "extended", "waiting"), 
+             by = "year,city"
+            ][order(-year), ]
+     )
 ```
 
-There were plenty of papers at each conference.
-Perth 2019 is a monster with the assistance of AOCMP.
+There were plenty of papers at each conference. 
 ```{r}
-print(SUBS[, .(total = sum(n)), by=conference])
+# How many papers in each status group, by conference
+tbl <- dcast(SUBS, value.var = "n", conference~status, fun = sum)
+# and add the sum of all papers, per conference
+tbl[, total:=base::sum(.SD), by=conference]
+# make in year order
+tbl <- tbl[order(-str_extract(conference, "_(.*)")),] 
+print(tbl[, total, by=conference])
 ```
+Perth 2019 is a monster with the assistance of AOCMP, weighing in at `r tbl[conference %like% 2019, sum(total)]` papers in total.
+
+Hobart in 2017 looks a bit light on, but this may be due to some late submissions 
+being missed [^2^]
+
+How many in each group?
+```{r }
+print(tbl)
+```
+
+As the absolute numbers are quite different it might be more useful to look at the percentage of papers in each group.
+```{r }
+tbl_percent <- tbl[, lapply(.SD, function(x) round(100 * x / total, 1)), by=conference]
+print(tbl_percent[, -"total"])
+```
+
+The AOCMP authors appear to be good at keeping to deadlines, with 2/3 of submissions in before the advertised close, and no late submissions.
+By contrast EPSM authors like to live dangerously, with 
+`r round(tbl_percent[conference != "AOCMP_2019", mean(lucky)], 1)`% 
+of submissions in the extension period on average.
+```{r }
+tbl_long <- melt(tbl_percent[, -"total"], id.vars = "conference")
+tbl_long[, variable := factor(variable, levels = c("late", "lucky", "early"))]
+ggplot(tbl_long) + 
+         aes(x=conference, y = value, fill = variable) + 
+         geom_col()
+```
+
+# what was submitted
+```{r }
+# Add a year marker to so can differentiate when merged
+PER_13[, year := 2013]
+PER_19[, year := 2019]
+# Merge with the common set of columns
+common_cols <- c("submitter", "city", "state","country", "theme", "ID", "conference", "year")
+PER <- rbind(PER_13[, ..common_cols], PER_19[, ..common_cols])
+# Make some broad classes of submission, based on which theme was chosen
+PER[theme %like% "Radiology", type := "Radiology"]
+PER[theme %like% "ROMP|Radiotherapy", type := "ROMP"]
+PER[theme %like% "Nuclear Med", type := "Nuc Med"]
+PER[theme %like% "Health Phys", type := "Health Phys"]
+PER[theme %like% "Engineer", type := "Eng"]
+# A catch-all for the rest
+PER[is.na(type), type := "other"]
+# Two conferences in Perth this year, so label by meeting to tell them apart
+PER[, meeting := paste(conference, year)]
+
+# Calculate percentages by first getting the total count per meeting
+# then dividing the count per type by that total
+# numbers <- PER[, {
+#                   total = .N
+#                   .SD[,.(percent = 100*(.N/total)), by = type]
+#                  }, by = meeting
+#               ]
+numbers <- PER[, .N, by = "type,meeting"][, .(type, percent = 100*(N/sum(N))), by=meeting]
+ggplot(numbers)+aes(x = meeting, y = percent, fill = type) + geom_col()
+```
+
+The percetnage of abstracts in each discipline seem fairly stable over time, although EPSM 2013 had a higher proportion of ROMP and Engineering related content and less Nuclear Medcine or Health Physics.
+
+```{r }
+print(dcast(numbers, type~meeting)[, lapply(.SD, round, 2), by = type])
+```
+
+AOCMP members seem less interested in Radiology Physics, with a lot more 'other' abstracts.
+This may be at leat in part to the wide range of available themes in 2019.
 
 # show and tell
 
@@ -157,3 +248,5 @@ print(SUBS[, .(total = sum(n)), by=conference])
  1. collect underpants<br>
  2. ???<br>
  3. profit!
+ 
+[^2^] Rourke, T. 2019 Personal communication.
