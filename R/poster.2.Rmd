@@ -31,13 +31,14 @@ In 2013 EPSM came to Perth, and for various reasons members of the WA branch org
 
  a) left their submission to the very last minute
  b) definitely expected a deadline extension
+ c) still left their extended submission to the very last minute
 
 Has anything changed since then?
 
 # modus
 
 Just as all happy families are the same, so all happy data analyses are alike.
-They all follow the tripartite path of the UG[^1^] syllogism:
+They all follow a common pattern[^1^]:
 
   * munge
   * analyse
@@ -112,9 +113,9 @@ setkey(period_long, conference)
 ```
 
 Finally, load the submission days for all the conferences into a unified format, 
-then generate the cumulative sum of submissions, in order of submission.
+in order of submission. Then generate the cumulative sum of submissions.
 ```{r }
-SUBS <- events[, fread(filename, col.names = c("day", "n")), by=conference]
+SUBS <- events[, fread(filename, col.names = c("day", "n"))[order(day), ], by=conference]
 # Add a key to make indexing faster and easier
 setkey(SUBS, conference)
 # Calcuate the total number of submissions up to each day
@@ -205,6 +206,8 @@ ggplot(tbl_long) +
          geom_col()
 ```
 
+
+
 # what themes abounded?
 
 Load the submission details for the two Perth meetings,
@@ -261,7 +264,7 @@ No-one seems to love Health Physics, which is sad.
 
 # show and tell
 
-# why? just, why?
+# tell me why?
 
 # sharing the blame
 [^1^]: Expressed most clearly by the Underpants Gnomes<br>
