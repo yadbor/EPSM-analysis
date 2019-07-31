@@ -120,6 +120,8 @@ SUBS <- events[, fread(filename, col.names = c("day", "n"))[order(day), ], by=co
 setkey(SUBS, conference)
 # Calcuate the total number of submissions up to each day
 SUBS[, sum := cumsum(n[order(day)]), by=conference]
+# Make a meeting column as a factor with the order we define
+SUBS[, meeting := factor(conference, levels= events[order(year), conference]) ]
 ```
 Classify the submissions into 
 
