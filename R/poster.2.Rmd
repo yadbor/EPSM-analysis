@@ -9,7 +9,8 @@ author:
   affiliation: The Conference Company
 
 date: "7/11/2019"
-output: html_document
+output: 
+  posterdown::posterdown_betterport
 ---
 
 ```{r setup, include=FALSE}
@@ -27,7 +28,7 @@ clean_path <- "../data"
 
 # prologue
 
-In 2013 EPSM came to Perth, and for various reasons members of the WA branch organised the abstract submissions, scheduling and production of the abstract book. Just like the old days. This gave us direct access to the submission data, so like good scientists we looked at the time series. What we saw was that the submitters 
+In 2013 EPSM came to Perth, and for various reasons members of the WA branch organised the abstract submissions, scheduling and production of the abstract book. Just like the old days. This gave us direct access to the submission data, so like good scientists we looked at the time series. What we saw was that people 
 
  a) left their submission to the very last minute
  b) definitely expected a deadline extension

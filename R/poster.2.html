@@ -84,7 +84,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -191,16 +190,17 @@ The Conference Company<br><h4 class="date">7/11/2019</h4>
 
 <div id="prologue" class="section level1">
 <h1>prologue</h1>
-<p>In 2013 EPSM came to Perth, and for various reasons members of the WA branch organised the abstract submissions, scheduling and production of the abstract book. Just like the old days. This gave us direct access to the submission data, so like good scientists we looked at the time series. What we saw was that the submitters</p>
+<p>In 2013 EPSM came to Perth, and for various reasons members of the WA branch organised the abstract submissions, scheduling and production of the abstract book. Just like the old days. This gave us direct access to the submission data, so like good scientists we looked at the time series. What we saw was that people</p>
 <ol style="list-style-type: lower-alpha">
 <li>left their submission to the very last minute</li>
 <li>definitely expected a deadline extension</li>
+<li>still left their extended submission to the very last minute</li>
 </ol>
 <p>Has anything changed since then?</p>
 </div>
 <div id="modus" class="section level1">
 <h1>modus</h1>
-<p>Just as all happy families are the same, so all happy data analyses are alike. They all follow the tripartite path of the UG<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> syllogism:</p>
+<p>Just as all happy families are the same, so all happy data analyses are alike. They all follow a common pattern<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>:</p>
 <ul>
 <li>munge</li>
 <li>analyse</li>
@@ -254,12 +254,14 @@ period_long &lt;- melt(period,
                    )
 # Add a key to make indexing faster and easier
 setkey(period_long, conference)</code></pre>
-<p>Finally, load the submission days for all the conferences into a unified format, then generate the cumulative sum of submissions, in order of submission.</p>
-<pre class="r"><code>SUBS &lt;- events[, fread(filename, col.names = c(&quot;day&quot;, &quot;n&quot;)), by=conference]
+<p>Finally, load the submission days for all the conferences into a unified format, in order of submission. Then generate the cumulative sum of submissions.</p>
+<pre class="r"><code>SUBS &lt;- events[, fread(filename, col.names = c(&quot;day&quot;, &quot;n&quot;))[order(day), ], by=conference]
 # Add a key to make indexing faster and easier
 setkey(SUBS, conference)
 # Calcuate the total number of submissions up to each day
-SUBS[, sum := cumsum(n[order(day)]), by=conference]</code></pre>
+SUBS[, sum := cumsum(n[order(day)]), by=conference]
+# Make a meeting column as a factor with the order we define
+SUBS[, meeting := factor(conference, levels= events[order(year), conference]) ]</code></pre>
 <p>Classify the submissions into</p>
 <ul>
 <li>premature – before call for papers</li>
@@ -395,8 +397,8 @@ ggplot(numbers)+aes(x = meeting, y = percent, fill = type) + geom_col()</code></
 <div id="show-and-tell" class="section level1">
 <h1>show and tell</h1>
 </div>
-<div id="why-just-why" class="section level1">
-<h1>why? just, why?</h1>
+<div id="tell-me-why" class="section level1">
+<h1>tell me why?</h1>
 </div>
 <div id="sharing-the-blame" class="section level1">
 <h1>sharing the blame</h1>
