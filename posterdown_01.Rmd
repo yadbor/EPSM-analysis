@@ -97,30 +97,47 @@ SUBS <- data.table::data.table(conference = events[, conference],
 SUBS <- SUBS[, fread(filename, col.names = c("day_prior", "n")), by=conference]
 ```
 
+# Results
 
+```{r fig.cap='Time allowed for submissions by conference', out.width="80%"}
+# Use a colourblind friendly palette with grey
+ggplot(days_long) + 
+  aes(x = conference, y = days, fill = period) +
+  geom_col(width = 0.5) +
+  scale_fill_manual(name = "Submission\nPeriod",
+                    breaks = c("initial", "extended"), 
+                    values=c("#56B4E9", "#E69F00", NA)) +
+  geom_hline(yintercept = 0, colour = "black") +
+  geom_vline(xintercept = 3.5, linetype = 2, size = 0.1) +
+  ylab("days before meeting") +
+  theme(legend.position=c(.80, .8)) +
+  coord_flip()
 
+```
 
+EPSM conferences vary in the length of time they allow for submitting abstracts, 
+although they all call for papers about `r round(abs(days_allowed[, mean(total)]), -1)` days before the conference.
+EPSM 2013 in Perth looks like a bit of an outlier, starting earlier and running longer,
+with an extension period about twice that of other conferences.
+These meant that there was less time between the last submisison and the conference starting.
+```{r duration_table, echo=FALSE}
+print(days_allowed[city != "AOCMP", 
+                   lapply(.SD, function (x) -1*x), 
+                   .SDcols = c("total", "initial", "extended", "waiting"), 
+                   by = "year,city"
+                   ]
+      )
+```
 
+There were plenty of papers at each conference.
+Perth 2019 is a monster with the assistance of AOCMP.
+```{r}
+print(SUBS[, .(total = sum(n)), by=conference])
+```
 
-1. Pick a template layout.
-2. Write/ create your poster content distraction free.
-3. Let posterdown do its thing!
-
-# Methods
-
-I will show here how to include poster elements that may be useful, such as an equation using mathjax:
-
-$$
-E = mc^2
-$$
-
-To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `[@R-pagedown]` [@R-pagedown].
 
 To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
 
-**_Now on to the results!_**
-
-# Results
 
 Here you may have some figures to show off, bellow I have made a scatterplot with the infamous Iris dataset and I can even reference to the figure automatically like this, `Figure \@ref(fig:irisfigure)`, Figure \@ref(fig:irisfigure).
 
