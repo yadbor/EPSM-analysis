@@ -9,8 +9,8 @@ author:
   affiliation: The Conference Company
 
 date: "7/11/2019"
-output: 
-  posterdown::posterdown_betterport
+output: html_document
+
 ---
 
 ```{r setup, include=FALSE}
