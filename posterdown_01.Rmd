@@ -7,10 +7,9 @@ author:
   - name: Robert Day
     affil: 1
     main: true
-    email: robert.day@health.wa.gov.au
   - name: Tegan Rourke
     affil: 2
-  - name: Hilary
+  - name: Hilary Cottam
     affil: 3
 affiliation:
   - num: 1
@@ -20,7 +19,7 @@ affiliation:
   - num: 3
     address: The Conference Company
 main_findings:
-  - "Make **better posters** with RMarkdown + **posterdown**."
+  - "**EPSM** submitters as optimisitc as they were in 2013.<br>**AOCMP** submitters are more punctual."
 logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 logocenter_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/qr-code-black.png
@@ -65,6 +64,41 @@ knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
 The initial raw data contained information that could be used to identify individual papers or submitters. 
 To protect everyone's secret identities, these data were scrubbed clean. At the same time they were rearranged into a single standard format for comparison between meetings. 
 Only the sparkling clean data are included in this project.
+
+
+```{r cload clean}
+# Read the significant dates and convert them all to days-before-conference,
+# then rearrange to long format for easier plotting.
+events <- fread(file.path(clean_path, "conf.dates.csv"))
+# make a conference column that matches the other tables
+events[, conference := paste(city, year, sep = "_")]
+# calculate how long each period was
+days_allowed <- events[, .(total    = as.integer(difftime(call, date)),
+                           initial  = as.integer(difftime(call, close)),
+                           extended = as.integer(difftime(close, extended)),
+                           waiting  = as.integer(difftime(extended, date))
+                           ), 
+                           by="conference,year,city"
+                       ]
+# Make conference an ordered factor so ggplot doesn't rearrange
+days_allowed[, conference := factor(conference, levels = rev(conference))]
+# convert to long for for plotting
+days_long <- melt(days_allowed, 
+                  measure.vars = c("initial", "extended", "waiting"), 
+                  variable.name = "period",
+                  value.name = "days"
+                  )
+
+#Finally, load the submission days for all the conferences into a unified format.
+sub_file_names <- file.path(clean_path, paste0(events[, conference], ".csv"))
+#sub_files[, filename := file.path(clean_path, paste0(conference, ".csv"))]
+SUBS <- data.table::data.table(conference = events[, conference],
+                               filename   = sub_file_names)
+SUBS <- SUBS[, fread(filename, col.names = c("day_prior", "n")), by=conference]
+```
+
+
+
 
 
 

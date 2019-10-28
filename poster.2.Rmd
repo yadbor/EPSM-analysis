@@ -72,7 +72,7 @@ see ```clean_2019.Rmd``` for details.
 Read the significant dates and convert them all to days-before-conference,
 then rearrange to long format for easier plotting.
 ```{r convert dates}
-events <- fread(file.path(raw_path, "conf.dates.csv"))
+events <- fread(file.path(clean_path, "conf.dates.csv"))
 # make a conference column that matches the other tables
 events[, conference := paste(city, year, sep = "_")]
 # calculate how long each period was
