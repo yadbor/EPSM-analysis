@@ -40,33 +40,45 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.align = 'center',
                       out.width = "100%")
 options(knitr.table.format = "html") 
+knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
 ```
 
 # the prologue...
 
-When EPSM came to Perth in 2013, for various reasons the WA branch members organised the abstract submissions, scheduling and production of the abstract book. Just like the old days. This gave us direct access to the submission data, so we Scienced it. What we saw was that people: 
+When EPSM came to Perth in 2013, for various reasons it looked like making a huge loss.
+
+To save money the branch members did most of the work of handling submissions, scheduling and making the abstract book. 
+Just like the old days. 
+This gave us direct access to the submission data, so we Scienced it. 
+What we saw was that people: 
 
  a) left their submission to the very last minute
  b) *definitely* expected a deadline extension
  c) still left their submission to the very last minute
 
-Has anything changed since then?
+Has anyone learned anything since then?
 
+```{r prologue, include=FALSE}
+# Load needed libraries and set file locations
+library(data.table)
+library(stringr)
+library(ggplot2)
 
-This is the `posterdown_betterport` template for the {posterdown} package! I was inspired by the twitter thread of [Mike Morrison](https://mobile.twitter.com/mikemorrison/status/1110191245035479041) and wanted to apply the `#betterposter` concept to the reproducible (yet simple to use) functionality of the {posterdown} package [@R-posterdown]. If you're not an R user don't sweat as you do **NOT** need to use it at all! Feel free to use only the Markdown functionality of this package :)
-
-```{r, include=FALSE}
-knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
+# Paths relative to the Project folder.
+# If running code as standalone from the R folder, need to be ../data etc
+raw_path <- "./data-raw"
+clean_path <- "./data"
 ```
 
-## shiny, happy data
+# shiny, happy data
 
 The initial raw data contained information that could be used to identify individual papers or submitters. 
-To protect everyone's secret identities, these data were scrubbed clean. At the same time they were rearranged into a single standard format for comparison between meetings. 
-Only the sparkling clean data are included in this project.
+To protect everyone's secret identities, these data were scrubbed clean. 
+In the process, they were rearranged into a single standard format for comparison between meetings. 
+The technical term for this is *munging*.
+Only sparkling clean pre-munged data are included in this project for your convenience.
 
-
-```{r cload clean}
+```{r load clean}
 # Read the significant dates and convert them all to days-before-conference,
 # then rearrange to long format for easier plotting.
 events <- fread(file.path(clean_path, "conf.dates.csv"))
@@ -95,6 +107,29 @@ sub_file_names <- file.path(clean_path, paste0(events[, conference], ".csv"))
 SUBS <- data.table::data.table(conference = events[, conference],
                                filename   = sub_file_names)
 SUBS <- SUBS[, fread(filename, col.names = c("day_prior", "n")), by=conference]
+
+# Add a key to make indexing faster and easier
+setkey(SUBS, conference)
+# Calcuate the total number of submissions up to each day
+SUBS[, sum := cumsum(n[order(days)]), by=conference]
+# Make a meeting column as a factor with the order we define
+SUBS[, meeting := factor(conference, levels= events[order(year), conference]) ]
+
+# Classify the submissions into 
+# 
+#   * premature -- before call for papers
+#   * early -- before the close 
+#   * lucky -- after the first close but before the extention period ends
+#   * late -- after the extended period closes (won't be any of those, right?)
+
+SUBS[day < event_days[conference, close], status := 'early', by=conference]
+SUBS[day < event_days[conference, call], status := 'premature', by=conference]
+SUBS[day > event_days[conference, extended], status := 'late', by=conference]
+# The only un-lablled statuses must be the lucky ones
+SUBS[is.na(status), status := "lucky"]
+# Make the status a factor and put in temporal order
+SUBS[, status := factor(status, levels = c("premature", "early", "lucky", "late"))]
+
 ```
 
 # Results
@@ -117,24 +152,26 @@ ggplot(days_long) +
 
 EPSM conferences vary in the length of time they allow for submitting abstracts, 
 although they all call for papers about `r round(abs(days_allowed[, mean(total)]), -1)` days before the conference.
-EPSM 2013 in Perth looks like a bit of an outlier, starting earlier and running longer,
+Perth 2013 was an outlier, starting earlier, running longer and
 with an extension period about twice that of other conferences.
-These meant that there was less time between the last submisison and the conference starting.
-```{r duration_table, echo=FALSE}
-print(days_allowed[city != "AOCMP", 
-                   lapply(.SD, function (x) -1*x), 
-                   .SDcols = c("total", "initial", "extended", "waiting"), 
-                   by = "year,city"
-                   ]
-      )
-```
+This was done to maximise the number of ~~income generating units~~ attendees.
 
-There were plenty of papers at each conference.
-Perth 2019 is a monster with the assistance of AOCMP.
+There were plenty of papers at each conference. 
 ```{r}
-print(SUBS[, .(total = sum(n)), by=conference])
+# How many papers in each status group, by conference
+tbl <- dcast(SUBS, value.var = "n", conference~status, fun = sum)
+# and add the sum of all papers, per conference
+tbl[, total:=base::sum(.SD), by=conference]
+# make in year order
+tbl <- tbl[order(-str_extract(conference, "_(.*)")),] 
+print(tbl[, total, by=conference])
 ```
+Perth 2019 is a monster with the assistance of AOCMP, weighing in at `r tbl[conference %like% 2019, sum(total)]` papers in total.
 
+Hobart in 2017 looks a bit light on, but this may be due to some late submissions 
+being missed[^2^].
+
+Perth 2019 is a monster with the assistance of AOCMP.
 
 # what themes abounded?
 
@@ -148,59 +185,35 @@ details[, year := str_match(file, "\\_(\\d{4})\\_")[,2]]
 PER <- details[, fread(file), by=year]
 
 # Make some broad classes of submission, based on which theme was chosen
-PER[theme %like% "Radiology", type := "Radiology"]
-PER[theme %like% "ROMP|Radiotherapy", type := "ROMP"]
-PER[theme %like% "Nuclear Med", type := "Nuc Med"]
-PER[theme %like% "Health Phys", type := "Health Phys"]
-PER[theme %like% "Engineer", type := "Eng"]
+PER[theme %like% "Radiology", topic := "Radiology"]
+PER[theme %like% "ROMP|Radiotherapy", topic := "ROMP"]
+PER[theme %like% "Nuclear Med", topic := "Nuc Med"]
+PER[theme %like% "Health Phys", topic := "Health Phys"]
+PER[theme %like% "Engineer", topic := "Eng"]
 # A catch-all for the rest
-PER[is.na(type), type := "other"]
+PER[is.na(topic), topic := "other"]
 # Two conferences in Perth this year, so label by meeting to tell them apart
 PER[, meeting := paste(conference, year)]
 
 # Calculate percentages by first getting the total count per meeting
-# then dividing the count per type by that total
-numbers <- PER[, .N, by = "type,meeting"]
-numbers <- numbers[, .(type, percent = 100*(N/sum(N))), by=meeting]
+# then dividing the count per topic by that total
+numbers <- PER[, .N, by = "topic,meeting"]
+numbers <- numbers[, .(topic, percent = 100*(N/sum(N))), by=meeting]
 
-ggplot(numbers) + aes(x = meeting, y = percent, fill = type) + geom_col()
+ggplot(numbers) + aes(x = meeting, y = percent, fill = topic) + geom_col()
 ```
 
 The percentage of abstracts in each discipline seems fairly stable over time, although EPSM 2013 had a higher proportion of ROMP and Engineering related content and less Nuclear Medcine or Health Physics. The number of Engineering abstracts may have been because the Engineers on the conference committee actively extorted submissions.
 ```{r }
-print(dcast(numbers, type~meeting)[, lapply(.SD, round, 2), by = type])
+print(dcast(numbers, topic~meeting)[, lapply(.SD, round, 2), by = topic])
 ```
 
 AOCMP members seem less interested in Radiology Physics, with a lot more 'other' abstracts.
-This may be at least in part to the wide range of available themes in 2019.
+This may be partly an artefact of the wide range of themes in 2019.
 
 No-one seems to love Health Physics, which is sad.
 
 
-To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
-
-
-Here you may have some figures to show off, bellow I have made a scatterplot with the infamous Iris dataset and I can even reference to the figure automatically like this, `Figure \@ref(fig:irisfigure)`, Figure \@ref(fig:irisfigure).
-
-```{r, irisfigure, fig.cap='Here is a caption for the figure. This can be added by using the "fig.cap" option in the r code chunk options, see this [link](https://yihui.name/knitr/options/#plots) from the legend himself, [Yihui Xie](https://twitter.com/xieyihui).', out.width="80%"}
-par(mar=c(2,2,0,1))
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width,
-     col = iris$Species, pch = 19, xlab = "Sepal Length",
-     ylab = "Sepal Width")
-```
-
-Maybe you want to show off some of that fancy code you spent so much time on to make that figure, well you can do that too! Just use the `echo=TRUE` option in the r code chunk options, Figure \@ref(fig:myprettycode)!
-
-```{r myprettycode, echo=TRUE, fig.cap='Boxplots, so hot right now!', fig.height=6, out.width="80%"}
-#trim whitespace
-par(mar=c(2,2,0,0))
-#plot boxplots
-boxplot(iris$Sepal.Width~iris$Species,
-        col = "#008080", 
-        border = "#0b4545",
-        ylab = "Sepal Width (cm)",
-        xlab = "Species")
-```
 
 How about a neat table of data? See, Table \@ref(tab:iristable):
 
