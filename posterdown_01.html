@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>An analysis of EPSM and AOCMP abstact submissions</title>
+
+
+
+
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
+
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
+<style>
+@page {
+size: 36in 48in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0px;
+padding: 0px;
+width: 36in;
+height: 48in;
+text-align: justify;
+font-size: 45px;
+line-height: 1.05;
+}
+/* RMarkdown Class Styles */
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r {
+background-color: #dddddd40;
+border-radius: 4mm;
+padding: 4mm;
+width: 75%;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+code.sourceCode.r{
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #00808024;
+color: #0b4545;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+caption {
+margin-bottom: 10px;
+font-size: 20pt;
+font-style: italic;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #00808020;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+}
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 20pt;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 20px;
+line-height: 90%;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 36in;
+height: calc(48in *  (1 - 0.2 - 0.1 - 0.01) );
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Rasa;
+margin-top: calc(48in *  0.2 );
+padding-top: 1em;
+padding-bottom: 1em;
+}
+span.citation {
+  color: #008080;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #008080;
+}
+#title {
+font-size: 125pt;
+text-align: left;
+margin: 0;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+}
+#author {
+color: #0b4545;
+margin: 0;
+line-height: 85%;
+font-size: 1.17em;
+}
+#affiliation {
+padding-top: 0.1em;
+color: ;
+font-style: italic;
+font-size: 25px;
+margin: 0;
+}
+sup {
+color: #cc0000;
+}
+.affiliation sup {
+font-size: 20px;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 30px;
+}
+.author_extra {
+color: #008080;
+margin: 0;
+line-height: 85%;
+font-size: 35px;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #0b454575 33%,
+      #0b4545 50%,
+      #0b454575 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+}
+.outer p, .level2 {
+color: #000000;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 36in;
+height: calc(48in * 0.2);
+position: absolute;
+background-color: #0b4545;
+color: #ffffff90;
+font-family: Special Elite;
+background-image: linear-gradient(#0b4545 50%,#008080);
+}
+.main strong {
+color: #ffffff;
+}
+.main strong > sup {
+color: #ffffff;
+}
+.main sup {
+color: #ffffff90;
+}
+#main-img-left {
+width: 10%;
+left: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+#main-img-center {
+width: 10%;
+left: calc(36in * 0.45);
+bottom: 0.5in;
+position: absolute;
+}
+#main-img-right {
+width: 10%;
+right: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+.main p {
+font-size: 150px;
+font-family: Special Elite;
+text-align: center;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 1em;
+}
+.fab {
+color: #00000030;
+font-size: 25px;
+}
+.twitter, i {
+color: #00000030;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000030;
+font-size: 35px;
+}
+.envelope {
+color: #00000030;
+font-size: 5px;
+text-decoration: none;
+}
+.poster_wrap {
+width: 36in;
+height: 48in;
+padding: 0cm;
+}
+.main_bottom {
+width: 36in;
+height: calc(48in * 0.1);
+margin-top: calc(48in * (1 - 0.1));
+position: absolute;
+background-color: #0b4545;
+background-image: linear-gradient(#008080 10%, #0b4545);
+}
+.section {
+  padding-left: 10mm;
+  padding-right: 10mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
+}
+.orcid img {
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 100%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+
+<div class="column outer">
+<div class="section">
+<h1 id="title"><strong>An analysis of EPSM and AOCMP abstact submissions</strong></h1><br>
+<h3 id="author" class="author">
+
+  </h3>
+
+<h5 id="author_extra", class="author_extra">
+Robert Day<sup>1</sup>
+ Tegan Rourke<sup>2</sup>
+ Hilary Cottam<sup>3</sup>
+</h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup>1</sup> Health Technology Management Unit, EMHS<br> <sup>2</sup> Medical Technology &amp; Physics, Sir Charles Gairdner Hospital<br> <sup>3</sup> The Conference Company
+</p>
+</div>
+
+<div id="the-prologue" class="section level1">
+<h1>The prologue…</h1>
+<p>When EPSM came to Perth in 2013 it looked like making a huge loss.</p>
+<p>To save money, branch members did most of the work of handling submissions, scheduling and making the abstract book. Just like the old days. This gave us direct access to the submission data, so we Scienced it. What we saw was that people:</p>
+<ol style="list-style-type: lower-alpha">
+<li>left their submission to the very last minute</li>
+<li><em>definitely</em> expected a deadline extension</li>
+<li>still left their submission to the very last minute</li>
+</ol>
+<p>Has anyone learned anything since then?</p>
+</div>
+<div id="shiny-happy-data" class="section level1">
+<h1>shiny, happy data</h1>
+<p>This year’s Conference The initial raw data contained information that could be used to identify individual papers or submitters. To protect everyone’s secret identities, these data were scrubbed clean. In the process, they were rearranged into a single standard format for comparison between meetings. The technical term for this is <em>munging</em>.</p>
+<p>Only sparkling clean pre-munged data are included in this project for your convenience.</p>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="posterdown_01_files/figure-html/unnamed-chunk-2-1.png" alt="Time allowed for submissions by conference" width="80%" />
+<p class="caption">
+Figure 1: Time allowed for submissions by conference
+</p>
+</div>
+<p>EPSM conferences vary in the length of time they allow for submitting abstracts, although they all call for papers about 240 days before the conference. Perth 2013 opened earlier and for longer, with an extension period twice that of other conferences. This was done to maximise the number of <del>income generating units</del> attendees.</p>
+There were plenty of papers at each conference.
+<table>
+<caption>
+<span id="tab:unnamed-chunk-3">Table 1: </span>Submissions per conference.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+conference
+</th>
+<th style="text-align:right;">
+early
+</th>
+<th style="text-align:right;">
+lucky
+</th>
+<th style="text-align:right;">
+late
+</th>
+<th style="text-align:right;">
+total
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+AOCMP_2019
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+117
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Perth_2019
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+99
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+217
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelaide_2018
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+130
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+231
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hobart_2017
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+170
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Perth_2013
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+219
+</td>
+<td style="text-align:right;">
+219
+</td>
+</tr>
+</tbody>
+</table>
+<p>Perth 2019 is a monster with the assistance of AOCMP, weighing in at 334 papers in total.</p>
+<p>Hobart in 2017 looks a bit light on, but this may be due to some late submissions being missed<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
+<p>AOCMP authors appear to be good at keeping to deadlines, with 2/3 of submissions in before the advertised close, and no late submissions. <img src="posterdown_01_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>By contrast EPSM authors like to live dangerously, with 38.7% of submissions in the extension period on average.</p>
+</div>
+<div id="what-themes-abounded" class="section level1">
+<h1>what themes abounded?</h1>
+<p>Only the Perth meetings have submission details, which were grouped by broad themes for comparison. <img src="posterdown_01_files/figure-html/unnamed-chunk-5-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>The share of abstracts in each discipline seems fairly stable over time, although EPSM 2013 had more ROMP and Engineering related content and less Nuclear Medcine or Health Physics. The high number in Engineering may have been because Engineers on the conference committee actively extorted submissions.</p>
+<pre><code>##          topic AOCMP 2019 EPSM 2013 EPSM 2019
+## 1:         Eng       5.13      7.76      3.69
+## 2: Health Phys       1.71      0.46      1.38
+## 3:     Nuc Med       4.27      3.65      5.07
+## 4:        ROMP      56.41     67.12     64.98
+## 5:   Radiology       3.42      7.76      7.83
+## 6:       other      29.06     13.24     17.05</code></pre>
+<p>AOCMP members seem less interested in Radiology Physics, with a lot more ‘other’ abstracts. This may be partly an artefact of the wide range of themes in 2019.</p>
+<p>No-one seems to love Health Physics, which is sad.</p>
+</div>
+<div id="embrace-extend" class="section level1">
+<h1>embrace &amp; extend</h1>
+<p>This poster was made in an attempt to sell the idea of Reproduceable Research.</p>
+<p>The complete package, including the cleaned data, code and the poster template will be at (<a href="https://github.com/yadbor/EPSM-analysis" class="uri">https://github.com/yadbor/EPSM-analysis</a>), or just scan the QR code on this poster.</p>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+</div>
+<div id="colophon" class="section level1">
+<h1>Colophon</h1>
+<p>Made with the <code>posterdown_betterport</code> template for the {posterdown} package, available from CRAN (<a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>) or github (<a href="https://github.com/brentthorne/posterdown" class="uri">https://github.com/brentthorne/posterdown</a>).</p>
+<p>Written in R (<a href="https://www.r-project.org" class="uri">https://www.r-project.org</a>) and Rmarkdown (<a href="https://rmarkdown.rstudio.com" class="uri">https://rmarkdown.rstudio.com</a>), using RStudio 1.1.463 (<a href="https://rstudio.com" class="uri">https://rstudio.com</a>)</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Rourke, T. 2019 Personal communication.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+</div>
+<div class="main">
+<p><strong>EPSM</strong> authors are as optimisitc as in 2013.<br><strong>AOCMP</strong> authors are more punctual.</p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=https://epsm.org.au/wp-content/uploads/2018/11/EPSM-Conference-Logo-Suite-2019-02.png>
+<img id="main-img-center" src=./images/EPSM-analysis_2k_qr-code.png>
+<img id="main-img-right" src=https://raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png>
+</div>
+</div>
+
+
+
+</body>
+</html>

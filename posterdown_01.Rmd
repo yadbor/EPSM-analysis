@@ -18,8 +18,8 @@ affiliation:
   - num: 3
     address: The Conference Company
 main_findings:
-  - "**EPSM** authors are just as optimisitc as in 2013.<br>**AOCMP** authors are more punctual."
-logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
+  - "**EPSM** authors are as optimisitc as in 2013.<br>**AOCMP** authors are more punctual."
+logoleft_name: https&#58;//epsm.org.au/wp-content/uploads/2018/11/EPSM-Conference-Logo-Suite-2019-02.png
 logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 # logocenter_name: https&#58;//github.com/yadbor/EPSM-analysis/raw/master/images/EPSM-analysis_2k_qr-code.png
 logocenter_name: ./images/EPSM-analysis_2k_qr-code.png
@@ -79,6 +79,7 @@ This year's Conference The initial raw data contained information that could be 
 To protect everyone's secret identities, these data were scrubbed clean. 
 In the process, they were rearranged into a single standard format for comparison between meetings. 
 The technical term for this is *munging*.
+
 Only sparkling clean pre-munged data are included in this project for your convenience.
 
 ```{r load clean}
@@ -140,6 +141,9 @@ SUBS <- data.table::data.table(conference = events[, conference],
                                filename   = sub_file_names)
 SUBS <- SUBS[, fread(filename, col.names = c("day", "n")), by=conference]
 
+# A wild kludge appears
+SUBS[, day := -1 * day]
+
 # Add a key to make indexing faster and easier
 setkey(SUBS, conference)
 # Calcuate the total number of submissions up to each day
@@ -165,7 +169,6 @@ SUBS[, status := factor(status, levels = c("premature", "early", "lucky", "late"
 ```
 
 # Results
-
 ```{r fig.cap='Time allowed for submissions by conference', out.width="80%"}
 # Use a colourblind friendly palette with grey
 ggplot(days_long) + 
@@ -209,6 +212,23 @@ Perth 2019 is a monster with the assistance of AOCMP, weighing in at `r tbl[conf
 Hobart in 2017 looks a bit light on, but this may be due to some late submissions 
 being missed[^1^].
 
+
+AOCMP authors appear to be good at keeping to deadlines, with 2/3 of submissions in before the advertised close, and no late submissions.
+```{r }
+tbl_percent <- tbl[, lapply(.SD, function(x) round(100 * x / total, 1)),
+                   by = conference]
+tbl_long <- melt(tbl_percent[, -"total"], id.vars = "conference")
+tbl_long[, variable := factor(variable, levels = c("late", "lucky", "early"))]
+ggplot(tbl_long) + 
+         aes(x=conference, y = value, fill = variable) + 
+         geom_col()
+
+```
+
+By contrast EPSM authors like to live dangerously, with 
+`r round(tbl_percent[conference != "AOCMP_2019", mean(lucky)], 1)`% 
+of submissions in the extension period on average.
+
 # what themes abounded?
 
 Only the Perth meetings have submission details, which were grouped by broad themes for comparison.
@@ -218,7 +238,8 @@ details <- data.table(file = dir(path = clean_path,
                                  full.names = TRUE)
 )
 details[, year := str_match(file, "\\_(\\d{4})\\_")[,2]]
-PER <- details[, fread(file), by=year]
+col_types = list(character = 2:6, integer = 1)
+PER <- details[, fread(file, colClasses = col_types), by=year]
 
 # Make some broad classes of submission, based on which theme was chosen
 PER[theme %like% "Radiology", topic := "Radiology"]
@@ -239,7 +260,7 @@ numbers <- numbers[, .(topic, percent = 100*(N/sum(N))), by=meeting]
 ggplot(numbers) + aes(x = meeting, y = percent, fill = topic) + geom_col()
 ```
 
-The percentage of abstracts in each discipline seems fairly stable over time, although EPSM 2013 had a higher proportion of ROMP and Engineering related content and less Nuclear Medcine or Health Physics. The high number of Engineering abstracts may have been because the Engineers on the conference committee actively extorted submissions.
+The share of abstracts in each discipline seems fairly stable over time, although EPSM 2013 had more ROMP and Engineering related content and less Nuclear Medcine or Health Physics. The high number in Engineering may have been because Engineers on the conference committee actively extorted submissions.
 ```{r }
 print(dcast(numbers, topic~meeting)[, lapply(.SD, round, 2), by = topic])
 ```
@@ -249,43 +270,16 @@ This may be partly an artefact of the wide range of themes in 2019.
 
 No-one seems to love Health Physics, which is sad.
 
-
-```{r, iristable}
-knitr::kable(
-  iris[1:15,1:5], format = "html",
-  caption = "A table made with the **knitr::kable** function.",
-  align = "c", col.names = c("Sepal <br> Length",
-                             "Sepal <br> Width",
-                             "Petal <br> Length",
-                             "Petal <br> Width",
-                             "Species"),
-  escape = FALSE)
-```
-
 # embrace & extend
 
-To add another conference to this study, several steps
+This poster was made in an attempt to sell the idea of Reproduceable Research.
 
-1. add the relevant dates to conf.dates.csv
-
-This has one row for each meeting, with six columns
-
-name     | type | contents
-----     | ---- | ---------- 
-city     | string | the name of the city where the conference was held
-year     | YYYY | a four digit year
-date     | YYYY-MM-DD | the date the meeting starts, in ISO format
-call     | YYYY-MM-DD | when the call for papers went out, in ISO format 
-close    | YYYY-MM-DD | when submissions closed, in ISO format
-extended | YYYY-MM-DD | when they *really* closed, in ISO format
-
-Note that for 2019 there were two meetings in the one city, so AOCMP became a city.
-
+The complete package, including the cleaned data, code and the poster template will be at (https://github.com/yadbor/EPSM-analysis), or just scan the QR code on this poster.
 
 # References
 [^1^]: Rourke, T. 2019 Personal communication.
+
 # Colophon
+Made with the `posterdown_betterport` template for the {posterdown} package, available from CRAN (https://cran.r-project.org/) or github (https://github.com/brentthorne/posterdown). 
 
-This poster was made with the `posterdown_betterport` template for the {posterdown} [package](https://github.com/brentthorne/posterdown), in an attempt to sell the idea of Reproduceable Research.
-
-The complete package, including the cleaned data, code and the poster template is at (https://github.com/yadbor/EPSM-analysis), or just scan the QR code on this poster.
+Written in R (https://www.r-project.org) and Rmarkdown (https://rmarkdown.rstudio.com), using RStudio 1.1.463 (https://rstudio.com)
