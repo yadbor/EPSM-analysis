@@ -2,11 +2,10 @@
 main_topsize: 0.2 #percent coverage of the poster
 main_bottomsize: 0.1
 #ESSENTIALS
-title: '**A Better Reproducible Poster Title**'
+title: "**An analysis of EPSM and AOCMP abstact submissions**"
 author:
   - name: Robert Day
     affil: 1
-    main: true
   - name: Tegan Rourke
     affil: 2
   - name: Hilary Cottam
@@ -19,10 +18,14 @@ affiliation:
   - num: 3
     address: The Conference Company
 main_findings:
-  - "**EPSM** submitters as optimisitc as they were in 2013.<br>**AOCMP** submitters are more punctual."
+  - "**EPSM** authors are just as optimisitc as in 2013.<br>**AOCMP** authors are more punctual."
 logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
-logocenter_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/qr-code-black.png
+# logocenter_name: https&#58;//github.com/yadbor/EPSM-analysis/raw/master/images/EPSM-analysis_2k_qr-code.png
+logocenter_name: ./images/EPSM-analysis_2k_qr-code.png
+# Page parameters
+# poster_height: "48in"
+# poster_width: "36in"
 output: 
   posterdown::posterdown_betterport:
     self_contained: false
@@ -43,11 +46,11 @@ options(knitr.table.format = "html")
 knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
 ```
 
-# the prologue...
+# The prologue...
 
-When EPSM came to Perth in 2013, for various reasons it looked like making a huge loss.
+When EPSM came to Perth in 2013 it looked like making a huge loss.
 
-To save money the branch members did most of the work of handling submissions, scheduling and making the abstract book. 
+To save money, branch members did most of the work of handling submissions, scheduling and making the abstract book. 
 Just like the old days. 
 This gave us direct access to the submission data, so we Scienced it. 
 What we saw was that people: 
@@ -72,7 +75,7 @@ clean_path <- "./data"
 
 # shiny, happy data
 
-The initial raw data contained information that could be used to identify individual papers or submitters. 
+This year's Conference The initial raw data contained information that could be used to identify individual papers or submitters. 
 To protect everyone's secret identities, these data were scrubbed clean. 
 In the process, they were rearranged into a single standard format for comparison between meetings. 
 The technical term for this is *munging*.
@@ -84,6 +87,35 @@ Only sparkling clean pre-munged data are included in this project for your conve
 events <- fread(file.path(clean_path, "conf.dates.csv"))
 # make a conference column that matches the other tables
 events[, conference := paste(city, year, sep = "_")]
+
+
+# The same information, converted to day prior to conference
+event_days <- events[, lapply(.SD, 
+                              function(x) as.integer(difftime(x, date))
+                              ),
+                     .SDcols = c("call", "close", "extended"), 
+                     by="conference,year,city"]
+# Add a key to make indexing faster and easier
+setkey(event_days, conference)
+
+# Calculate how long each period was
+period <- event_days[, .(total    = call, 
+                         initial  = call-close, 
+                         extended = close-extended, 
+                         waiting  = extended), 
+                     by="conference,year,city"]
+
+# Make conference an ordered factor so ggplot doesn't rearrange
+period[, conference := factor(conference, period[order(year), ]$conference)]
+# Convert to long for for plotting
+period_long <- melt(period, 
+                    measure.vars = c("initial", "extended", "waiting"), 
+                    variable.name = "period",
+                    value.name = "days"
+                   )
+# Add a key to make indexing faster and easier
+setkey(period_long, conference)
+
 # calculate how long each period was
 days_allowed <- events[, .(total    = as.integer(difftime(call, date)),
                            initial  = as.integer(difftime(call, close)),
@@ -106,12 +138,12 @@ sub_file_names <- file.path(clean_path, paste0(events[, conference], ".csv"))
 #sub_files[, filename := file.path(clean_path, paste0(conference, ".csv"))]
 SUBS <- data.table::data.table(conference = events[, conference],
                                filename   = sub_file_names)
-SUBS <- SUBS[, fread(filename, col.names = c("day_prior", "n")), by=conference]
+SUBS <- SUBS[, fread(filename, col.names = c("day", "n")), by=conference]
 
 # Add a key to make indexing faster and easier
 setkey(SUBS, conference)
 # Calcuate the total number of submissions up to each day
-SUBS[, sum := cumsum(n[order(days)]), by=conference]
+SUBS[, sum := cumsum(n[order(day)]), by=conference]
 # Make a meeting column as a factor with the order we define
 SUBS[, meeting := factor(conference, levels= events[order(year), conference]) ]
 
