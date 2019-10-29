@@ -184,8 +184,8 @@ ggplot(days_long) +
 
 EPSM conferences vary in the length of time they allow for submitting abstracts, 
 although they all call for papers about `r round(abs(days_allowed[, mean(total)]), -1)` days before the conference.
-Perth 2013 was an outlier, starting earlier, running longer and
-with an extension period about twice that of other conferences.
+Perth 2013 opened earlier and for longer, 
+with an extension period twice that of other conferences.
 This was done to maximise the number of ~~income generating units~~ attendees.
 
 There were plenty of papers at each conference. 
@@ -196,18 +196,22 @@ tbl <- dcast(SUBS, value.var = "n", conference~status, fun = sum)
 tbl[, total:=base::sum(.SD), by=conference]
 # make in year order
 tbl <- tbl[order(-str_extract(conference, "_(.*)")),] 
-print(tbl[, total, by=conference])
+#print(tbl[, total, by=conference])
+
+knitr::kable(
+  tbl, format = "html",
+  caption = "Submissions per conference.",
+  align = c("l","r","r","r", "r"),
+  escape = FALSE)
 ```
 Perth 2019 is a monster with the assistance of AOCMP, weighing in at `r tbl[conference %like% 2019, sum(total)]` papers in total.
 
 Hobart in 2017 looks a bit light on, but this may be due to some late submissions 
-being missed[^2^].
-
-Perth 2019 is a monster with the assistance of AOCMP.
+being missed[^1^].
 
 # what themes abounded?
 
-Only the two Perth meetings have submission details. These were grouped by broad themes to allow comparison.
+Only the Perth meetings have submission details, which were grouped by broad themes for comparison.
 ```{r }
 details <- data.table(file = dir(path = clean_path, 
                                  pattern = "details.csv", 
@@ -235,7 +239,7 @@ numbers <- numbers[, .(topic, percent = 100*(N/sum(N))), by=meeting]
 ggplot(numbers) + aes(x = meeting, y = percent, fill = topic) + geom_col()
 ```
 
-The percentage of abstracts in each discipline seems fairly stable over time, although EPSM 2013 had a higher proportion of ROMP and Engineering related content and less Nuclear Medcine or Health Physics. The number of Engineering abstracts may have been because the Engineers on the conference committee actively extorted submissions.
+The percentage of abstracts in each discipline seems fairly stable over time, although EPSM 2013 had a higher proportion of ROMP and Engineering related content and less Nuclear Medcine or Health Physics. The high number of Engineering abstracts may have been because the Engineers on the conference committee actively extorted submissions.
 ```{r }
 print(dcast(numbers, topic~meeting)[, lapply(.SD, round, 2), by = topic])
 ```
@@ -245,9 +249,6 @@ This may be partly an artefact of the wide range of themes in 2019.
 
 No-one seems to love Health Physics, which is sad.
 
-
-
-How about a neat table of data? See, Table \@ref(tab:iristable):
 
 ```{r, iristable}
 knitr::kable(
@@ -282,14 +283,9 @@ Note that for 2019 there were two meetings in the one city, so AOCMP became a ci
 
 
 # References
-
+[^1^]: Rourke, T. 2019 Personal communication.
 # Colophon
 
 This poster was made with the `posterdown_betterport` template for the {posterdown} [package](https://github.com/brentthorne/posterdown), in an attempt to sell the idea of Reproduceable Research.
 
-The complete package, including the cleaned data and all the poster templates
-
-
-
-
-I was inspired by the twitter thread of [Mike Morrison](https://mobile.twitter.com/mikemorrison/status/1110191245035479041) and wanted to apply the `#betterposter` concept to the reproducible (yet simple to use) functionality of the {posterdown}
+The complete package, including the cleaned data, code and the poster template is at (https://github.com/yadbor/EPSM-analysis), or just scan the QR code on this poster.
