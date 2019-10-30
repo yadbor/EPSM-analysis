@@ -1,0 +1,15 @@
+
+conf.dates.csv
+
+meeting, city, year, date, call, close, extended
+
+for each conference in conf.dates.csv there will be a submissions file named
+
+meeting_city_year.csv
+
+and with columns
+submitter_ID, city, state, country, theme, abstract_ID, submit_date
+
+
+
+
