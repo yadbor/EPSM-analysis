@@ -19,7 +19,7 @@ affiliation:
     address: The Conference Company
 main_findings:
   - "**EPSM** authors are as optimisitc as in 2013.<br>**AOCMP** authors are more punctual."
-logoleft_name: https&#58;//epsm.org.au/wp-content/uploads/2018/11/EPSM-Conference-Logo-Suite-2019-02.png
+logoleft_name: ./images/EPSM-Conference-Logo-Suite-2019-02.png
 logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 # logocenter_name: https&#58;//github.com/yadbor/EPSM-analysis/raw/master/images/EPSM-analysis_2k_qr-code.png
 logocenter_name: ./images/EPSM-analysis_2k_qr-code.png
