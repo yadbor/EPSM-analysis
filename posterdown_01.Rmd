@@ -8,7 +8,7 @@ author:
     affil: 1
   - name: Tegan Rourke
     affil: 2
-  - name: Hilary Cottam
+  - name: Harriet Cottam
     affil: 3
 affiliation:
   - num: 1
