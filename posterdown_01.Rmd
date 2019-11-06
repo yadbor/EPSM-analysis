@@ -75,7 +75,7 @@ clean_path <- "./data"
 
 # shiny, happy data
 
-This year's Conference The initial raw data contained information that could be used to identify individual papers or submitters. 
+Some raw data contained information that could be used to identify individual papers or submitters. 
 To protect everyone's secret identities, these data were scrubbed clean. 
 In the process, they were rearranged into a single standard format for comparison between meetings. 
 The technical term for this is *munging*.
@@ -142,7 +142,7 @@ SUBS <- data.table::data.table(conference = events[, conference],
 SUBS <- SUBS[, fread(filename, col.names = c("day", "n")), by=conference]
 
 # A wild kludge appears
-SUBS[, day := -1 * day]
+SUBS[, day := -1 * abs(day)]
 
 # Add a key to make indexing faster and easier
 setkey(SUBS, conference)
@@ -203,7 +203,7 @@ tbl <- tbl[order(-str_extract(conference, "_(.*)")),]
 
 knitr::kable(
   tbl, format = "html",
-  caption = "Submissions per conference.",
+  caption = NULL,
   align = c("l","r","r","r", "r"),
   escape = FALSE)
 ```
@@ -260,9 +260,18 @@ numbers <- numbers[, .(topic, percent = 100*(N/sum(N))), by=meeting]
 ggplot(numbers) + aes(x = meeting, y = percent, fill = topic) + geom_col()
 ```
 
+####
+<br>
+
 The share of abstracts in each discipline seems fairly stable over time, although EPSM 2013 had more ROMP and Engineering related content and less Nuclear Medcine or Health Physics. The high number in Engineering may have been because Engineers on the conference committee actively extorted submissions.
 ```{r }
-print(dcast(numbers, topic~meeting)[, lapply(.SD, round, 2), by = topic])
+
+topic_table <- dcast(numbers, value.var = 'percent', topic~meeting)[, lapply(.SD, round, 1), by = topic]
+knitr::kable(
+  topic_table, format = "html",
+  caption = NULL,
+  align = c("r","r","r", "r"),
+  escape = FALSE)
 ```
 
 AOCMP members seem less interested in Radiology Physics, with a lot more 'other' abstracts.
