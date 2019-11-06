@@ -46,7 +46,7 @@ options(knitr.table.format = "html")
 knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
 ```
 
-# The prologue...
+# the prologue...
 
 When EPSM came to Perth in 2013 it looked like making a huge loss.
 
@@ -75,7 +75,7 @@ clean_path <- "./data"
 
 # shiny, happy data
 
-This year's Conference The initial raw data contained information that could be used to identify individual papers or submitters. 
+Some raw data contained information that could be used to identify individual papers or submitters. 
 To protect everyone's secret identities, these data were scrubbed clean. 
 In the process, they were rearranged into a single standard format for comparison between meetings. 
 The technical term for this is *munging*.
@@ -142,7 +142,7 @@ SUBS <- data.table::data.table(conference = events[, conference],
 SUBS <- SUBS[, fread(filename, col.names = c("day", "n")), by=conference]
 
 # A wild kludge appears
-SUBS[, day := -1 * day]
+SUBS[, day := -1 * abs(day)]
 
 # Add a key to make indexing faster and easier
 setkey(SUBS, conference)
@@ -168,7 +168,7 @@ SUBS[, status := factor(status, levels = c("premature", "early", "lucky", "late"
 
 ```
 
-# Results
+# they did what?
 ```{r fig.cap='Time allowed for submissions by conference', out.width="80%"}
 # Use a colourblind friendly palette with grey
 ggplot(days_long) + 
@@ -276,10 +276,10 @@ This poster was made in an attempt to sell the idea of Reproduceable Research.
 
 The complete package, including the cleaned data, code and the poster template will be at (https://github.com/yadbor/EPSM-analysis), or just scan the QR code on this poster.
 
-# References
+# references
 [^1^]: Rourke, T. 2019 Personal communication.
 
-# Colophon
+# colophon
 Made with the `posterdown_betterport` template for the {posterdown} package, available from CRAN (https://cran.r-project.org/) or github (https://github.com/brentthorne/posterdown). 
 
 Written in R (https://www.r-project.org) and Rmarkdown (https://rmarkdown.rstudio.com), using RStudio 1.1.463 (https://rstudio.com)
